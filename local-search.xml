@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>创建一篇新博客</title>
+    <link href="/2020/02/15/%E5%88%9B%E5%BB%BA%E4%B8%80%E7%AF%87%E6%96%B0%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2020/02/15/%E5%88%9B%E5%BB%BA%E4%B8%80%E7%AF%87%E6%96%B0%E5%8D%9A%E5%AE%A2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h1><p>使用</p><pre><code class="bash">hexo n [title]</code></pre><p>来创建一篇新的文章</p><h1 id="更新到博客上"><a href="#更新到博客上" class="headerlink" title="更新到博客上"></a>更新到博客上</h1><p>用git</p><pre><code class="bash">git add .git commit -m [注释]</code></pre><p>来上传到服务器上</p><p>再用</p><pre><code class="bash">git push origin master</code></pre><p>进行同步。<br>同步后登录码云进行部署。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>blog</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>科里奥利力的方向</title>
+    <link href="/2020/02/15/%E7%A7%91%E9%87%8C%E5%A5%A5%E5%88%A9%E5%8A%9B/"/>
+    <url>/2020/02/15/%E7%A7%91%E9%87%8C%E5%A5%A5%E5%88%A9%E5%8A%9B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h1><h2 id="参考系转动的角速度方向"><a href="#参考系转动的角速度方向" class="headerlink" title="参考系转动的角速度方向"></a>参考系转动的角速度方向</h2><p>根据<strong>右手定则</strong>，从上往下看，四指绕着物体转动方向，拇指指向的方向为角速度的方向。</p><p>科里奥利力向上：<img src="https://img-blog.csdnimg.cn/20200204123524668.png" srcset="/img/loading.gif" alt="逆时针"><br>科里奥利力向下：<img src="https://img-blog.csdnimg.cn/20200204123559303.png" srcset="/img/loading.gif" alt="顺时针"></p><h2 id="向量外积"><a href="#向量外积" class="headerlink" title="向量外积"></a>向量外积</h2><p>大小：<strong>a×b</strong> = |a||b|sin&lt;a,b&gt;<strong>=c</strong><br>方向：从向量a绕到向量b形成的轨迹运用<strong>右手定则（同上）</strong>,拇指指向为c的方向。<br><img src="https://img-blog.csdnimg.cn/20200204124150146.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="向量外积"></p><h2 id="科里奥利力的方向"><a href="#科里奥利力的方向" class="headerlink" title="科里奥利力的方向"></a>科里奥利力的方向</h2><p>根据<strong>F = 2mν×ω</strong><br>科里奥利力的方向由物体的速度指向参考系的角速度，假设上图a是物体相对于非惯性参考系的速度，b是非惯性参考系转动的角速度，c就为科里奥利力的方向。</p><h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><h2 id="地转偏向力"><a href="#地转偏向力" class="headerlink" title="地转偏向力"></a>地转偏向力</h2><p>我们都知道北半球物体运动会向右偏转，南半球物体会向左偏转，如图：<br>红色为地球自转的角速度方向，假设蓝色为物体运动方向，灰色就是科里奥利力的方向。<br><img src="https://img-blog.csdnimg.cn/20200204123151969.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="北半球的科里奥利力方向"><br>把北半球假象为一个平面，图中的红色指向圆面外，无论蓝色的速度线方向如何，使用右手定则科里奥利力方向一定向右。<img src="https://img-blog.csdnimg.cn/20200204132116634.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="北半球"><br>相反，对于南半球，科里奥利力的方向虽然与北半球相同，但是对于南半球来说“下面”才是“上面”，所以南半球的科里奥利力方向向左。<br><img src="https://img-blog.csdnimg.cn/20200204132835735.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="南半球"></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>你好世界</title>
+    <link href="/2020/02/15/hello-world/"/>
+    <url>/2020/02/15/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>这是我搭建的第一个博客网站，欢迎你来到我的小窝。这也是我的第一篇博客。在这里你可以找到我的很多联系方式</p><h1 id="B站"><a href="#B站" class="headerlink" title="B站"></a>B站</h1><p><a href="https://space.bilibili.com/13382902?spm_id_from=333.788.b_765f7570696e666f.1" target="_blank" rel="noopener">慕容冷静</a></p><h1 id="csdn"><a href="#csdn" class="headerlink" title="csdn"></a>csdn</h1><p><a href="https://i.csdn.net/#/uc/profile" target="_blank" rel="noopener">muronglengjing</a></p><h1 id="微信公众号"><a href="#微信公众号" class="headerlink" title="微信公众号"></a>微信公众号</h1><p>搜索：慕容冷静</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
