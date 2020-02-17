@@ -4,16 +4,41 @@
   
   
   <entry>
-    <title>搭建属于你的博客吧</title>
-    <link href="/2020/02/17/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%90%A7/"/>
-    <url>/2020/02/17/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%90%A7/</url>
+    <title>Git常用命令</title>
+    <link href="/2020/02/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/"/>
+    <url>/2020/02/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/</url>
     
-    <content type="html"><![CDATA[<p>要想搭建一个属于自己的博客平台，你需要</p><ul><li>一个Github账号和Gitee账号（搭建免费的服务平台）</li><li>一台电脑（保存你的博客）</li><li>一个图床（保存图片）</li></ul><h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>具体安装过程可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo文档</a></p><h2 id="同步码云"><a href="#同步码云" class="headerlink" title="同步码云"></a>同步码云</h2><p>在码云里，新建一个 <strong>仓库</strong>，名字要与你的<strong>用户名</strong>相同，点击<strong>管理</strong>，填入<strong>仓库远程地址</strong>，点击<strong>保存</strong> 。</p><p>找到 <strong>服务</strong>，点击 <strong>Gitee Pages</strong>，开启服务。</p><h1 id="更新博客"><a href="#更新博客" class="headerlink" title="更新博客"></a>更新博客</h1><h2 id="创建一篇新博客"><a href="#创建一篇新博客" class="headerlink" title="创建一篇新博客"></a>创建一篇新博客</h2><p>在Git bash中输入</p><pre><code class="bash">hexo n [文章的标题]</code></pre><p>如果标题中带空格则需要用英文的双引号括起。</p><p>接着在当前目录下可以找到 <strong>source\_posts</strong> 的有个 <strong>[标题].md</strong>的文件，可以用记事本直接进入修改。</p><p>在文件的前几行有这样几条数据</p><table><thead><tr><th>键</th><th>值</th></tr></thead><tbody><tr><td>title</td><td>[标题]</td></tr><tr><td>date</td><td>[发布的日期]</td></tr><tr><td>tags</td><td>标签，多标签请用<code>[标签1,标签2]</code></td></tr><tr><td>categories</td><td>分类</td></tr></tbody></table><p>修改对应的值即可更改文章信息</p><h2 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h2><p>markdown是为了让用户更关注于写作本身而不是排版的一种轻量级的语言。</p><p>举个例子</p><pre><code class="markdown"># 一级标题## 二级标题### 三级标题</code></pre><p>比较好用的编辑器是 <strong>Typora</strong>， <strong>VScode</strong>也可以进行编辑。</p><p>具体语法可以参考<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>。</p><p>一般图片保存应该保存在图床上，Gitee免费仓库的存储空间只有500M，我们可以使用免费的 <strong>路过图床</strong>。</p><h2 id="更新博客到网页上"><a href="#更新博客到网页上" class="headerlink" title="更新博客到网页上"></a>更新博客到网页上</h2><h3 id="第一次执行"><a href="#第一次执行" class="headerlink" title="第一次执行"></a>第一次执行</h3><p>第一次执行时需要修改 <em>_config.yml</em>文件，在最后一行的改成</p><pre><code class="yaml">deploy:  type: git  repository: [你的仓库地址]  branch: master</code></pre><p>再根据<a href="https://hexo.io/zh-cn/docs/github-pages" target="_blank" rel="noopener">hexo官方文档</a>的指引，增加 <em>.travis.yml</em>文件.</p><p>然后在控制台输入以下命令</p><pre><code class="bash">npm install hexo-deployer-git</code></pre><p>最后执行多次执行的步骤。</p><h3 id="多次执行"><a href="#多次执行" class="headerlink" title="多次执行"></a>多次执行</h3><pre><code class="bash">hexo g -d</code></pre><p>就可以把博客更新的内容上传到Github上，接着我们登录码云，点击<strong>强制同步</strong></p><p>就可以更新博客到码云上了。</p><p>这样的方式不需要经过码云漫长的部署，在国内的访问速度也更快。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h1><h2 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h2><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><pre><code class="bash">git init</code></pre><h3 id="添加文件到缓存区"><a href="#添加文件到缓存区" class="headerlink" title="添加文件到缓存区"></a>添加文件到缓存区</h3><pre><code class="bash">git add [文件名]</code></pre><h3 id="提交修改到版本库"><a href="#提交修改到版本库" class="headerlink" title="提交修改到版本库"></a>提交修改到版本库</h3><pre><code class="bash">git commit -m [文本内容]</code></pre><h3 id="查看修改内容"><a href="#查看修改内容" class="headerlink" title="查看修改内容"></a>查看修改内容</h3><pre><code class="bash">git log</code></pre><h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><pre><code class="bash">git reset --hard HEAD~[版本个数]</code></pre><h3 id="查看操作的内容"><a href="#查看操作的内容" class="headerlink" title="查看操作的内容"></a>查看操作的内容</h3><pre><code class="bash">git reflog</code></pre><h3 id="查看缓存区与工作区的工作状态"><a href="#查看缓存区与工作区的工作状态" class="headerlink" title="查看缓存区与工作区的工作状态"></a>查看缓存区与工作区的工作状态</h3><pre><code class="bash">git status</code></pre><h3 id="丢弃缓存区"><a href="#丢弃缓存区" class="headerlink" title="丢弃缓存区"></a>丢弃缓存区</h3><pre><code class="bash">git checkout -- [文件名]</code></pre><h3 id="删除工作区文件"><a href="#删除工作区文件" class="headerlink" title="删除工作区文件"></a>删除工作区文件</h3><pre><code class="bash">git rm [文件名]</code></pre><h3 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h3><h4 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h4><pre><code class="bash">git branch</code></pre><h4 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h4><pre><code class="bash">git branch [分支名]</code></pre><h4 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h4><pre><code class="bash">git switch [分支名]</code></pre><h4 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h4><pre><code class="bash">git merge [分支名]</code></pre><h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><pre><code class="bash">git branch -d [分支名]</code></pre><h3 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h3><h4 id="查看标签"><a href="#查看标签" class="headerlink" title="查看标签"></a>查看标签</h4><pre><code class="bash">git tag</code></pre><h4 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h4><pre><code class="bash">git tag [标签名]</code></pre><h4 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h4><pre><code class="bash">git tag -d [标签名]</code></pre><h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><pre><code class="bash">git remote add origin [Git的ssh地址]</code></pre><h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><pre><code class="bash">git push -u origin master</code></pre><h3 id="推送更新到远程仓库"><a href="#推送更新到远程仓库" class="headerlink" title="推送更新到远程仓库"></a>推送更新到远程仓库</h3><pre><code class="bash">git push origin master</code></pre><h3 id="强制推送到远程仓库"><a href="#强制推送到远程仓库" class="headerlink" title="强制推送到远程仓库"></a>强制推送到远程仓库</h3><pre><code class="bash">git push origin master -f</code></pre><h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><pre><code class="bash">git remote</code></pre><h3 id="删除远程仓库"><a href="#删除远程仓库" class="headerlink" title="删除远程仓库"></a>删除远程仓库</h3><pre><code class="bash">git remote rm [仓库名]</code></pre>]]></content>
     
     
     <categories>
       
-      <category>网络</category>
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>来搭建属于你的博客吧</title>
+    <link href="/2020/02/17/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%90%A7/"/>
+    <url>/2020/02/17/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%90%A7/</url>
+    
+    <content type="html"><![CDATA[<p>要想搭建一个属于自己的博客平台，你需要</p><ul><li>一个Github账号和Gitee账号（搭建免费的服务平台）</li><li>一台电脑（保存你的博客）</li><li>一个图床（保存图片）</li></ul><h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>具体安装过程可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo文档</a></p><h2 id="同步Github"><a href="#同步Github" class="headerlink" title="同步Github"></a>同步Github</h2><p>首先我们要在Github创建一个<strong>仓库</strong>，仓库的名字的格式应该是<strong>你的用户名.github.io</strong>，记下仓库的地址http的地址，然后我们修改 <em>_config.yml</em>文件，在最后一行的改成</p><pre><code class="yaml">deploy:  type: git  repository: [你的仓库地址]  branch: master</code></pre><p>再根据<a href="https://hexo.io/zh-cn/docs/github-pages" target="_blank" rel="noopener">hexo官方文档</a>的指引，增加 <em>.travis.yml</em>文件.</p><p>然后在控制台输入以下命令</p><pre><code class="bash">npm install hexo-deployer-git</code></pre><h2 id="同步码云"><a href="#同步码云" class="headerlink" title="同步码云"></a>同步码云</h2><p>在码云里，新建一个 <strong>仓库</strong>，名字要与你的<strong>用户名</strong>相同<br>点击<strong>管理</strong>，填入<strong>仓库远程地址</strong>，点击<strong>保存</strong> 。</p><p>找到 <strong>服务</strong>，点击 <strong>Gitee Pages</strong>，开启服务。</p><h1 id="更新博客"><a href="#更新博客" class="headerlink" title="更新博客"></a>更新博客</h1><h2 id="创建一篇新博客"><a href="#创建一篇新博客" class="headerlink" title="创建一篇新博客"></a>创建一篇新博客</h2><p>在Git bash中输入</p><pre><code class="bash">hexo n [文章的标题]</code></pre><p>如果标题中带空格则需要用英文的双引号括起。</p><p>接着在当前目录下可以找到 <strong>source\_posts</strong> 的有个 <strong>[标题].md</strong>的文件，可以用记事本直接进入修改。</p><p>在文件的前几行有这样几条数据</p><table><thead><tr><th>键</th><th>值</th></tr></thead><tbody><tr><td>title</td><td>[标题]</td></tr><tr><td>date</td><td>[发布的日期]</td></tr><tr><td>tags</td><td>标签，多标签请用<code>[标签1,标签2]</code></td></tr><tr><td>categories</td><td>分类</td></tr></tbody></table><p>修改对应的值即可更改文章信息</p><h2 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h2><p>markdown是为了让用户更关注于写作本身而不是排版的一种轻量级的语言。</p><p>举个例子</p><pre><code class="markdown"># 一级标题## 二级标题### 三级标题</code></pre><p>比较好用的编辑器是 <strong>Typora</strong>， <strong>VScode</strong>也可以进行编辑。</p><p>markdown具体语法可以参考<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>。</p><p>一般图片保存应该保存在图床上，因为Gitee免费仓库的存储空间只有500M，而且访问速度也不快。</p><p>我们可以使用免费的 <strong>路过图床</strong>。</p><h2 id="更新博客到网页上"><a href="#更新博客到网页上" class="headerlink" title="更新博客到网页上"></a>更新博客到网页上</h2><p>在git bash输入</p><pre><code class="bash">hexo g -d</code></pre><p>就可以把博客更新的内容上传到Github上，接着我们登录码云，点击<strong>强制同步</strong></p><p>就可以更新博客到码云上了。</p><p>更新后，我们可以通过<strong>你的用户名.gitee.io</strong>就可以直接访问你的博客了。</p><p>这样的方式不需要经过码云漫长的部署，在国内的访问速度也更快。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
       
     </categories>
     
@@ -93,12 +118,6 @@
     
     <content type="html"><![CDATA[<p>这是我搭建的第一个博客网站，欢迎你来到我的小窝。</p><p>这也是我的第一篇博客。</p><p>在这里你可以找到关于我的其他创作。</p><h1 id="B站"><a href="#B站" class="headerlink" title="B站"></a>B站</h1><p><a href="https://space.bilibili.com/13382902?spm_id_from=333.788.b_765f7570696e666f.1" target="_blank" rel="noopener">慕容冷静</a></p><h1 id="csdn"><a href="#csdn" class="headerlink" title="csdn"></a>csdn</h1><p><a href="https://i.csdn.net/#/uc/profile" target="_blank" rel="noopener">muronglengjing</a></p><h1 id="微信公众号"><a href="#微信公众号" class="headerlink" title="微信公众号"></a>微信公众号</h1><p><img src="/img/qc.jpg" srcset="/img/loading.gif" alt="公众号图片"></p>]]></content>
     
-    
-    <categories>
-      
-      <category>关于本站</category>
-      
-    </categories>
     
     
   </entry>

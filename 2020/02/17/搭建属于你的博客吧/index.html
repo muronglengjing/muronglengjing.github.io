@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="RQY">
   <meta name="keywords" content="">
-  <title>搭建属于你的博客吧 ~ 人世皆攘攘，相对唯顷刻</title>
+  <title>来搭建属于你的博客吧 ~ 人世皆攘攘，相对唯顷刻</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    546 字
+                    611 字
                   </span>&nbsp;
                 
 
@@ -138,7 +138,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      2 分钟
                   </span>&nbsp;
                 
 
@@ -178,7 +178,15 @@
 <li>一个图床（保存图片）</li>
 </ul>
 <h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>具体安装过程可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo文档</a></p>
-<h2 id="同步码云"><a href="#同步码云" class="headerlink" title="同步码云"></a>同步码云</h2><p>在码云里，新建一个 <strong>仓库</strong>，名字要与你的<strong>用户名</strong>相同，点击<strong>管理</strong>，填入<strong>仓库远程地址</strong>，点击<strong>保存</strong> 。</p>
+<h2 id="同步Github"><a href="#同步Github" class="headerlink" title="同步Github"></a>同步Github</h2><p>首先我们要在Github创建一个<strong>仓库</strong>，仓库的名字的格式应该是<strong>你的用户名.github.io</strong>，记下仓库的地址http的地址，然后我们修改 <em>_config.yml</em>文件，在最后一行的改成</p>
+<pre><code class="yaml">deploy:
+  type: git
+  repository: [你的仓库地址]
+  branch: master</code></pre>
+<p>再根据<a href="https://hexo.io/zh-cn/docs/github-pages" target="_blank" rel="noopener">hexo官方文档</a>的指引，增加 <em>.travis.yml</em>文件.</p>
+<p>然后在控制台输入以下命令</p>
+<pre><code class="bash">npm install hexo-deployer-git</code></pre>
+<h2 id="同步码云"><a href="#同步码云" class="headerlink" title="同步码云"></a>同步码云</h2><p>在码云里，新建一个 <strong>仓库</strong>，名字要与你的<strong>用户名</strong>相同<br>点击<strong>管理</strong>，填入<strong>仓库远程地址</strong>，点击<strong>保存</strong> 。</p>
 <p>找到 <strong>服务</strong>，点击 <strong>Gitee Pages</strong>，开启服务。</p>
 <h1 id="更新博客"><a href="#更新博客" class="headerlink" title="更新博客"></a>更新博客</h1><h2 id="创建一篇新博客"><a href="#创建一篇新博客" class="headerlink" title="创建一篇新博客"></a>创建一篇新博客</h2><p>在Git bash中输入</p>
 <pre><code class="bash">hexo n [文章的标题]</code></pre>
@@ -216,20 +224,14 @@
 ## 二级标题
 ### 三级标题</code></pre>
 <p>比较好用的编辑器是 <strong>Typora</strong>， <strong>VScode</strong>也可以进行编辑。</p>
-<p>具体语法可以参考<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>。</p>
-<p>一般图片保存应该保存在图床上，Gitee免费仓库的存储空间只有500M，我们可以使用免费的 <strong>路过图床</strong>。</p>
-<h2 id="更新博客到网页上"><a href="#更新博客到网页上" class="headerlink" title="更新博客到网页上"></a>更新博客到网页上</h2><h3 id="第一次执行"><a href="#第一次执行" class="headerlink" title="第一次执行"></a>第一次执行</h3><p>第一次执行时需要修改 <em>_config.yml</em>文件，在最后一行的改成</p>
-<pre><code class="yaml">deploy:
-  type: git
-  repository: [你的仓库地址]
-  branch: master</code></pre>
-<p>再根据<a href="https://hexo.io/zh-cn/docs/github-pages" target="_blank" rel="noopener">hexo官方文档</a>的指引，增加 <em>.travis.yml</em>文件.</p>
-<p>然后在控制台输入以下命令</p>
-<pre><code class="bash">npm install hexo-deployer-git</code></pre>
-<p>最后执行多次执行的步骤。</p>
-<h3 id="多次执行"><a href="#多次执行" class="headerlink" title="多次执行"></a>多次执行</h3><pre><code class="bash">hexo g -d</code></pre>
+<p>markdown具体语法可以参考<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>。</p>
+<p>一般图片保存应该保存在图床上，因为Gitee免费仓库的存储空间只有500M，而且访问速度也不快。</p>
+<p>我们可以使用免费的 <strong>路过图床</strong>。</p>
+<h2 id="更新博客到网页上"><a href="#更新博客到网页上" class="headerlink" title="更新博客到网页上"></a>更新博客到网页上</h2><p>在git bash输入</p>
+<pre><code class="bash">hexo g -d</code></pre>
 <p>就可以把博客更新的内容上传到Github上，接着我们登录码云，点击<strong>强制同步</strong></p>
 <p>就可以更新博客到码云上了。</p>
+<p>更新后，我们可以通过<strong>你的用户名.gitee.io</strong>就可以直接访问你的博客了。</p>
 <p>这样的方式不需要经过码云漫长的部署，在国内的访问速度也更快。</p>
 
             <hr>
@@ -241,7 +243,7 @@
               <span>
                 <i class="iconfont icon-inbox"></i>
                 
-                  <a class="hover-with-bg" href="/categories/%E7%BD%91%E7%BB%9C">网络</a>
+                  <a class="hover-with-bg" href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
                   &nbsp;
                 
               </span>&nbsp;&nbsp;
@@ -437,7 +439,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "搭建属于你的博客吧&nbsp;",
+        "来搭建属于你的博客吧&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
