@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>搭建属于你的博客吧</title>
+    <link href="/2020/02/17/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%90%A7/"/>
+    <url>/2020/02/17/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%90%A7/</url>
+    
+    <content type="html"><![CDATA[<p>要想搭建一个属于自己的博客平台，你需要</p><ul><li>一个Github账号和Gitee账号（搭建免费的服务平台）</li><li>一台电脑（保存你的博客）</li><li>一个图床（保存图片）</li></ul><h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>具体安装过程可以参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo文档</a></p><h2 id="同步码云"><a href="#同步码云" class="headerlink" title="同步码云"></a>同步码云</h2><p>在码云里，新建一个 <strong>仓库</strong>，名字要与你的<strong>用户名</strong>相同，点击<strong>管理</strong>，填入<strong>仓库远程地址</strong>，点击<strong>保存</strong> 。</p><p>找到 <strong>服务</strong>，点击 <strong>Gitee Pages</strong>，开启服务。</p><h1 id="更新博客"><a href="#更新博客" class="headerlink" title="更新博客"></a>更新博客</h1><h2 id="创建一篇新博客"><a href="#创建一篇新博客" class="headerlink" title="创建一篇新博客"></a>创建一篇新博客</h2><p>在Git bash中输入</p><pre><code class="bash">hexo n [文章的标题]</code></pre><p>如果标题中带空格则需要用英文的双引号括起。</p><p>接着在当前目录下可以找到 <strong>source\_posts</strong> 的有个 <strong>[标题].md</strong>的文件，可以用记事本直接进入修改。</p><p>在文件的前几行有这样几条数据</p><table><thead><tr><th>键</th><th>值</th></tr></thead><tbody><tr><td>title</td><td>[标题]</td></tr><tr><td>date</td><td>[发布的日期]</td></tr><tr><td>tags</td><td>标签，多标签请用<code>[标签1,标签2]</code></td></tr><tr><td>categories</td><td>分类</td></tr></tbody></table><p>修改对应的值即可更改文章信息</p><h2 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h2><p>markdown是为了让用户更关注于写作本身而不是排版的一种轻量级的语言。</p><p>举个例子</p><pre><code class="markdown"># 一级标题## 二级标题### 三级标题</code></pre><p>比较好用的编辑器是 <strong>Typora</strong>， <strong>VScode</strong>也可以进行编辑。</p><p>具体语法可以参考<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a>。</p><p>一般图片保存应该保存在图床上，Gitee免费仓库的存储空间只有500M，我们可以使用免费的 <strong>路过图床</strong>。</p><h2 id="更新博客到网页上"><a href="#更新博客到网页上" class="headerlink" title="更新博客到网页上"></a>更新博客到网页上</h2><h3 id="第一次执行"><a href="#第一次执行" class="headerlink" title="第一次执行"></a>第一次执行</h3><p>第一次执行时需要修改 <em>_config.yml</em>文件，在最后一行的改成</p><pre><code class="yaml">deploy:  type: git  repository: [你的仓库地址]  branch: master</code></pre><p>再根据<a href="https://hexo.io/zh-cn/docs/github-pages" target="_blank" rel="noopener">hexo官方文档</a>的指引，增加 <em>.travis.yml</em>文件.</p><p>然后在控制台输入以下命令</p><pre><code class="bash">npm install hexo-deployer-git</code></pre><p>最后执行多次执行的步骤。</p><h3 id="多次执行"><a href="#多次执行" class="headerlink" title="多次执行"></a>多次执行</h3><pre><code class="bash">hexo g -d</code></pre><p>就可以把博客更新的内容上传到Github上，接着我们登录码云，点击<strong>强制同步</strong></p><p>就可以更新博客到码云上了。</p><p>这样的方式不需要经过码云漫长的部署，在国内的访问速度也更快。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>博客</tag>
+      
+      <tag>Git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>黄沙之上，是你的故乡吗</title>
     <link href="/2020/02/16/%E9%BB%84%E6%B2%99%E4%B9%8B%E4%B8%8A%EF%BC%8C%E6%98%AF%E4%BD%A0%E7%9A%84%E6%95%85%E4%B9%A1%E5%90%97/"/>
     <url>/2020/02/16/%E9%BB%84%E6%B2%99%E4%B9%8B%E4%B8%8A%EF%BC%8C%E6%98%AF%E4%BD%A0%E7%9A%84%E6%95%85%E4%B9%A1%E5%90%97/</url>
@@ -33,31 +60,6 @@
   
   
   <entry>
-    <title>创建一篇新博客</title>
-    <link href="/2020/02/15/%E5%88%9B%E5%BB%BA%E4%B8%80%E7%AF%87%E6%96%B0%E5%8D%9A%E5%AE%A2/"/>
-    <url>/2020/02/15/%E5%88%9B%E5%BB%BA%E4%B8%80%E7%AF%87%E6%96%B0%E5%8D%9A%E5%AE%A2/</url>
-    
-    <content type="html"><![CDATA[<h1 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h1><p>使用</p><pre><code class="bash">hexo n [title]</code></pre><p>来创建一篇新的文章</p><h1 id="更新到博客上"><a href="#更新到博客上" class="headerlink" title="更新到博客上"></a>更新到博客上</h1><p>用git</p><pre><code class="bash">git add .git commit -m [注释]</code></pre><p>来上传到服务器上</p><p>再用</p><pre><code class="bash">git push origin master</code></pre><p>进行同步。<br>同步后登录码云进行部署。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>博客</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>博客</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>科里奥利力的方向</title>
     <link href="/2020/02/15/%E7%A7%91%E9%87%8C%E5%A5%A5%E5%88%A9%E5%8A%9B/"/>
     <url>/2020/02/15/%E7%A7%91%E9%87%8C%E5%A5%A5%E5%88%A9%E5%8A%9B/</url>
@@ -67,14 +69,16 @@
     
     <categories>
       
-      <category>大学物理</category>
+      <category>物理</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>物理, 力学</tag>
+      <tag>物理</tag>
+      
+      <tag>力学</tag>
       
     </tags>
     
@@ -87,12 +91,12 @@
     <link href="/2020/02/15/hello-world/"/>
     <url>/2020/02/15/hello-world/</url>
     
-    <content type="html"><![CDATA[<p>这是我搭建的第一个博客网站，欢迎你来到我的小窝。这也是我的第一篇博客。在这里你可以找到我的很多联系方式</p><h1 id="B站"><a href="#B站" class="headerlink" title="B站"></a>B站</h1><p><a href="https://space.bilibili.com/13382902?spm_id_from=333.788.b_765f7570696e666f.1" target="_blank" rel="noopener">慕容冷静</a></p><h1 id="csdn"><a href="#csdn" class="headerlink" title="csdn"></a>csdn</h1><p><a href="https://i.csdn.net/#/uc/profile" target="_blank" rel="noopener">muronglengjing</a></p><h1 id="微信公众号"><a href="#微信公众号" class="headerlink" title="微信公众号"></a>微信公众号</h1><p><img src="/img/qc.jpg" srcset="/img/loading.gif" alt="公众号图片"></p>]]></content>
+    <content type="html"><![CDATA[<p>这是我搭建的第一个博客网站，欢迎你来到我的小窝。</p><p>这也是我的第一篇博客。</p><p>在这里你可以找到关于我的其他创作。</p><h1 id="B站"><a href="#B站" class="headerlink" title="B站"></a>B站</h1><p><a href="https://space.bilibili.com/13382902?spm_id_from=333.788.b_765f7570696e666f.1" target="_blank" rel="noopener">慕容冷静</a></p><h1 id="csdn"><a href="#csdn" class="headerlink" title="csdn"></a>csdn</h1><p><a href="https://i.csdn.net/#/uc/profile" target="_blank" rel="noopener">muronglengjing</a></p><h1 id="微信公众号"><a href="#微信公众号" class="headerlink" title="微信公众号"></a>微信公众号</h1><p><img src="/img/qc.jpg" srcset="/img/loading.gif" alt="公众号图片"></p>]]></content>
     
     
     <categories>
       
-      <category>关于我</category>
+      <category>关于本站</category>
       
     </categories>
     
