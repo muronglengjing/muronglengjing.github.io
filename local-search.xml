@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>来做个课程表吧（二）</title>
+    <link href="/2020/02/20/do-a-classbook-2/"/>
+    <url>/2020/02/20/do-a-classbook-2/</url>
+    
+    <content type="html"><![CDATA[<p>[toc]</p><p>我们想要根据当前第几周显示课程表。</p><h1 id="确认当前时间"><a href="#确认当前时间" class="headerlink" title="确认当前时间"></a>确认当前时间</h1><h2 id="初始化时间"><a href="#初始化时间" class="headerlink" title="初始化时间"></a>初始化时间</h2><p>首先我们要确认一个学期的开始。我们设置一个日期。如果这个日期是星期天那么他就是一个学期的开始，如果不是，那么就变更这一天到最近的周日。</p><pre><code class="python">import datetime# 确认开始的日期 年/月/日init_year = 2020init_mouth = 2init_day = 20# 如果开始的一天不是周日，则将开始的日期变为周日if not datetime.datetime(init_year, init_mouth, init_day).strftime(&quot;%w&quot;) == 0:    init_day -= eval(datetime.datetime(init_year, init_mouth, init_day).strftime(&quot;%w&quot;))</code></pre><h2 id="计算当前周数"><a href="#计算当前周数" class="headerlink" title="计算当前周数"></a>计算当前周数</h2><p>计算当前日期于初始化时间直接差了多少天，然后除以7取余。结果从一开始，在weeks上面加个1.</p><pre><code class="python"># 初始化的时间init_date = datetime.datetime(init_year, init_mouth, init_day)# 现在的时间now_date = datetime.datetime.today()# 间隔的天数days = (now_date - init_date).days# 间隔的周数，第一周为1weeks = int(days / 7) + 1</code></pre><h1 id="绘制当前周"><a href="#绘制当前周" class="headerlink" title="绘制当前周"></a>绘制当前周</h1><h2 id="判断是否是当前周的课程"><a href="#判断是否是当前周的课程" class="headerlink" title="判断是否是当前周的课程"></a>判断是否是当前周的课程</h2><p>首先我们打印下保存周数据的字符串</p><pre><code class="python">print(course[&quot;zcd&quot;])</code></pre><p>输出结果为</p><img src="https://img-blog.csdnimg.cn/20200220201217939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" style="zoom: 67%;" /><p>可以看到，有的课程分单双周，所以要分别加以判断。</p><p>具体做法是，</p><ol><li><strong>判断</strong>“单”、“双”是否在字符串里，如果在的话，先<strong>剔除</strong>“周（单）”、“周（双）”，不在的话直接剔除“周”。</li><li>用“-”把字符串<strong>分隔</strong>开，取第一个为<strong>开始周</strong>，最后一个为<strong>结束周</strong>（因为开始周结束周可能是<strong>同一个</strong>！）。判断当前周是否在开始周于结束周之内。</li><li>如果是单双周的话还要判断除以二的余数。</li></ol><pre><code class="python">    week = course[&quot;zcd&quot;]    # 判断课程是否是单双周的课程    if &quot;单&quot; in week:        week = week.replace(&quot;周(单)&quot;, &quot;&quot;)        week = week.split(&quot;-&quot;)        # 开始周/结束周        start_week, end_week = eval(week[0]), eval(week[-1])        if weeks % 2 == 1: # 判断是否是单周            if start_week &lt;= weeks &lt;= end_week:  # 判断该课程是否是当前周的课程                if start_week &lt;= weeks &lt;= end_week:  # 判断该课程是否是当前周的课程                   [放置文本控件]    elif &quot;双&quot; in week:        week = week.replace(&quot;周(双)&quot;, &quot;&quot;)        week = week.split(&quot;-&quot;)        # 开始周/结束周        start_week, end_week = eval(week[0]), eval(week[-1])        if weeks % 2 == 0:  # 判断是否是双周            if start_week &lt;= weeks &lt;= end_week:  # 判断该课程是否是当前周的课程                if start_week &lt;= weeks &lt;= end_week:  # 判断该课程是否是当前周的课程                    [放置文本控件]    else:        week = week.replace(&quot;周&quot;, &quot;&quot;)        week = week.split(&quot;-&quot;)        # 开始周/结束周        start_week, end_week = eval(week[0]), eval(week[-1])        if start_week &lt;= weeks &lt;= end_week:  # 判断该课程是否是当前周的课程            [放置文本控件]</code></pre><p>以上判断都成立后就可以放置文本控件了。</p><h2 id="放置文本控件"><a href="#放置文本控件" class="headerlink" title="放置文本控件"></a>放置文本控件</h2><p>首先我们输出一下保存节数的字符串。</p><pre><code class="python">print(course[&quot;jcor&quot;])</code></pre><p>输出结果为</p><img src="https://img-blog.csdnimg.cn/20200220203144577.png" srcset="/img/loading.gif" style="zoom:67%;" /><p>那么我们就首先根据“-”把文本分隔开，然后取第一个和最后一个的数据，第一个数据确认了这节课所处的位置的y轴（一天的课不可能重叠），然后用星期来确认x轴</p><pre><code class="python">                    # 根据节来优化显示效果                    part = course[&quot;jcor&quot;]                    part = part.split(&quot;-&quot;)                    start_part, end_part = eval(part[0]), eval(part[-1])                    # 确认文本的位置                    x = weekday.index(course[&quot;xqjmc&quot;])                    text = Text(top, width=30, height=3 * (end_part - start_part + 1))  # 创建一个文本控件                    text.place(x=x * 215 + 10, y=start_part * 40 + 20)  # 在屏幕上放置文本控件                    text.insert(INSERT, scr)  # 在控件上放置文本</code></pre><p>最后进入消息循环。</p><pre><code class="python">top.mainloop()  # 进入消息循环</code></pre><p>最后的结果为</p><img src="https://img-blog.csdnimg.cn/20200220203024657.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" style="zoom:67%;" />]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+      <category>python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>课程表</tag>
+      
+      <tag>tkinter</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>来做个课程表吧（一）</title>
     <link href="/2020/02/20/do-a-classbook-1/"/>
     <url>/2020/02/20/do-a-classbook-1/</url>

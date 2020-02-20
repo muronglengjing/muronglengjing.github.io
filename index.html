@@ -144,6 +144,62 @@
     
     
     <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/02/20/do-a-classbook-2/">
+        <p class="h4 index-header">来做个课程表吧（二）</p>
+      </a>
+
+      <a href="/2020/02/20/do-a-classbook-2/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">[toc]
+我们想要根据当前第几周显示课程表。
+确认当前时间初始化时间首先我们要确认一个学期的开始。我们设置一个日期。如果这个日期是星期天那么他就是一个学期的开始，如果不是，那么就变更这一天到最近的周日。
+import datetime
+
+# 确认开始的日期 年/月/日
+init_year = 2020
+init_mouth = 2
+init_day = 20
+# 如果开始的一天不是周日，则将开始的日期变为周日
+if not datetime.datetime(init_year, init_mouth, init_day).strftime(&quot;%w&quot;) == 0:
+    init_day -= eval(datetime.datetime(init_year, init_mouth, init_day).strftime(&quot;%w&quot;))
+计算当前周数计算当前日期于初始化时间直接差了多少天，然后除以7取余。结果从一开始，在weeks上面加个1.
+# 初始化的时间
+init_date = datetime.datetime(init_year, i</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-20&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>&nbsp;
+          
+            <a href="/categories/python">python</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8">课程表</a>&nbsp;
+          
+            <a href="/tags/tkinter">tkinter</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a href="/2020/02/20/do-a-classbook-1/">
         <p class="h4 index-header">来做个课程表吧（一）</p>
       </a>

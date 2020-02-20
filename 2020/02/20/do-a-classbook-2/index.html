@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="description" content="">
+  <meta name="author" content="RQY">
+  <meta name="keywords" content="">
+  <title>来做个课程表吧（二） ~ 灯</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>灯</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/light.jpg')no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期四, 二月 20日 2020, 7:54 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    900 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      3 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <p>[toc]</p>
+<p>我们想要根据当前第几周显示课程表。</p>
+<h1 id="确认当前时间"><a href="#确认当前时间" class="headerlink" title="确认当前时间"></a>确认当前时间</h1><h2 id="初始化时间"><a href="#初始化时间" class="headerlink" title="初始化时间"></a>初始化时间</h2><p>首先我们要确认一个学期的开始。我们设置一个日期。如果这个日期是星期天那么他就是一个学期的开始，如果不是，那么就变更这一天到最近的周日。</p>
+<pre><code class="python">import datetime
+
+# 确认开始的日期 年/月/日
+init_year = 2020
+init_mouth = 2
+init_day = 20
+# 如果开始的一天不是周日，则将开始的日期变为周日
+if not datetime.datetime(init_year, init_mouth, init_day).strftime(&quot;%w&quot;) == 0:
+    init_day -= eval(datetime.datetime(init_year, init_mouth, init_day).strftime(&quot;%w&quot;))</code></pre>
+<h2 id="计算当前周数"><a href="#计算当前周数" class="headerlink" title="计算当前周数"></a>计算当前周数</h2><p>计算当前日期于初始化时间直接差了多少天，然后除以7取余。结果从一开始，在weeks上面加个1.</p>
+<pre><code class="python"># 初始化的时间
+init_date = datetime.datetime(init_year, init_mouth, init_day)
+# 现在的时间
+now_date = datetime.datetime.today()
+# 间隔的天数
+days = (now_date - init_date).days
+# 间隔的周数，第一周为1
+weeks = int(days / 7) + 1</code></pre>
+<h1 id="绘制当前周"><a href="#绘制当前周" class="headerlink" title="绘制当前周"></a>绘制当前周</h1><h2 id="判断是否是当前周的课程"><a href="#判断是否是当前周的课程" class="headerlink" title="判断是否是当前周的课程"></a>判断是否是当前周的课程</h2><p>首先我们打印下保存周数据的字符串</p>
+<pre><code class="python">print(course[&quot;zcd&quot;])</code></pre>
+<p>输出结果为</p>
+<img src="https://img-blog.csdnimg.cn/20200220201217939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" style="zoom: 67%;" />
+
+<p>可以看到，有的课程分单双周，所以要分别加以判断。</p>
+<p>具体做法是，</p>
+<ol>
+<li><strong>判断</strong>“单”、“双”是否在字符串里，如果在的话，先<strong>剔除</strong>“周（单）”、“周（双）”，不在的话直接剔除“周”。</li>
+<li>用“-”把字符串<strong>分隔</strong>开，取第一个为<strong>开始周</strong>，最后一个为<strong>结束周</strong>（因为开始周结束周可能是<strong>同一个</strong>！）。判断当前周是否在开始周于结束周之内。</li>
+<li>如果是单双周的话还要判断除以二的余数。</li>
+</ol>
+<pre><code class="python">    week = course[&quot;zcd&quot;]
+    # 判断课程是否是单双周的课程
+    if &quot;单&quot; in week:
+        week = week.replace(&quot;周(单)&quot;, &quot;&quot;)
+        week = week.split(&quot;-&quot;)
+        # 开始周/结束周
+        start_week, end_week = eval(week[0]), eval(week[-1])
+        if weeks % 2 == 1: # 判断是否是单周
+            if start_week &lt;= weeks &lt;= end_week:  # 判断该课程是否是当前周的课程
+                if start_week &lt;= weeks &lt;= end_week:  # 判断该课程是否是当前周的课程
+                   [放置文本控件]
+    elif &quot;双&quot; in week:
+        week = week.replace(&quot;周(双)&quot;, &quot;&quot;)
+        week = week.split(&quot;-&quot;)
+        # 开始周/结束周
+        start_week, end_week = eval(week[0]), eval(week[-1])
+        if weeks % 2 == 0:  # 判断是否是双周
+            if start_week &lt;= weeks &lt;= end_week:  # 判断该课程是否是当前周的课程
+                if start_week &lt;= weeks &lt;= end_week:  # 判断该课程是否是当前周的课程
+                    [放置文本控件]
+    else:
+        week = week.replace(&quot;周&quot;, &quot;&quot;)
+        week = week.split(&quot;-&quot;)
+        # 开始周/结束周
+        start_week, end_week = eval(week[0]), eval(week[-1])
+        if start_week &lt;= weeks &lt;= end_week:  # 判断该课程是否是当前周的课程
+            [放置文本控件]</code></pre>
+<p>以上判断都成立后就可以放置文本控件了。</p>
+<h2 id="放置文本控件"><a href="#放置文本控件" class="headerlink" title="放置文本控件"></a>放置文本控件</h2><p>首先我们输出一下保存节数的字符串。</p>
+<pre><code class="python">print(course[&quot;jcor&quot;])</code></pre>
+<p>输出结果为</p>
+<img src="https://img-blog.csdnimg.cn/20200220203144577.png" srcset="/img/loading.gif" style="zoom:67%;" />
+
+<p>那么我们就首先根据“-”把文本分隔开，然后取第一个和最后一个的数据，第一个数据确认了这节课所处的位置的y轴（一天的课不可能重叠），然后用星期来确认x轴</p>
+<pre><code class="python">                    # 根据节来优化显示效果
+                    part = course[&quot;jcor&quot;]
+                    part = part.split(&quot;-&quot;)
+                    start_part, end_part = eval(part[0]), eval(part[-1])
+                    # 确认文本的位置
+                    x = weekday.index(course[&quot;xqjmc&quot;])
+
+                    text = Text(top, width=30, height=3 * (end_part - start_part + 1))  # 创建一个文本控件
+                    text.place(x=x * 215 + 10, y=start_part * 40 + 20)  # 在屏幕上放置文本控件
+                    text.insert(INSERT, scr)  # 在控件上放置文本</code></pre>
+<p>最后进入消息循环。</p>
+<pre><code class="python">top.mainloop()  # 进入消息循环</code></pre>
+<p>最后的结果为</p>
+<img src="https://img-blog.csdnimg.cn/20200220203024657.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" style="zoom:67%;" />
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                  &nbsp;
+                
+                  <a class="hover-with-bg" href="/categories/python">python</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8">课程表</a>
+                
+                  <a class="hover-with-bg" href="/tags/tkinter">tkinter</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "bXTvJ0aEiQrw2W0m4q7oJnMw-gzGzoHsz",
+        app_key: "6G7bsJnYnzpvXic24IWjPNFA",
+        placeholder: "来聊天吧",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv"></span>总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv"></span>总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人&nbsp;
+  
+  <br>
+
+
+
+    
+
+
+    <!-- cnzz Analytics icon -->
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smoothscroll/SmoothScroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+    <!-- Baidu Analytics -->
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?515a348c74d5c1f242ab754c1b7a7011";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+    <!-- Tencent Analytics -->
+    <script>
+      var _mtac = {};
+      (function () {
+        var mta = document.createElement("script");
+        mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500023476");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+      })();
+    </script>
+  
+
+  
+
+  <!-- cnzz Analytics -->
+  
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "来做个课程表吧（二）&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "touch",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
