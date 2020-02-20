@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="RQY">
   <meta name="keywords" content="">
-  <title>Git常用命令 ~ 灯</title>
+  <title>从OpenCv到照片调色 ~ 灯</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -121,7 +121,7 @@
               
                 <p class="mt-3">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期一, 二月 17日 2020, 8:20 晚上
+                  星期三, 二月 19日 2020, 5:24 下午
                 </p>
               
 
@@ -130,7 +130,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    263 字
+                    93 字
                   </span>&nbsp;
                 
 
@@ -171,30 +171,10 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h1 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h1><h2 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h2><h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><pre><code class="bash">git init</code></pre>
-<h3 id="添加文件到缓存区"><a href="#添加文件到缓存区" class="headerlink" title="添加文件到缓存区"></a>添加文件到缓存区</h3><pre><code class="bash">git add [文件名]</code></pre>
-<h3 id="提交修改到版本库"><a href="#提交修改到版本库" class="headerlink" title="提交修改到版本库"></a>提交修改到版本库</h3><pre><code class="bash">git commit -m [文本内容]</code></pre>
-<h3 id="查看修改内容"><a href="#查看修改内容" class="headerlink" title="查看修改内容"></a>查看修改内容</h3><pre><code class="bash">git log</code></pre>
-<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><pre><code class="bash">git reset --hard HEAD~[版本个数]</code></pre>
-<h3 id="查看操作的内容"><a href="#查看操作的内容" class="headerlink" title="查看操作的内容"></a>查看操作的内容</h3><pre><code class="bash">git reflog</code></pre>
-<h3 id="查看缓存区与工作区的工作状态"><a href="#查看缓存区与工作区的工作状态" class="headerlink" title="查看缓存区与工作区的工作状态"></a>查看缓存区与工作区的工作状态</h3><pre><code class="bash">git status</code></pre>
-<h3 id="丢弃缓存区"><a href="#丢弃缓存区" class="headerlink" title="丢弃缓存区"></a>丢弃缓存区</h3><pre><code class="bash">git checkout -- [文件名]</code></pre>
-<h3 id="删除工作区文件"><a href="#删除工作区文件" class="headerlink" title="删除工作区文件"></a>删除工作区文件</h3><pre><code class="bash">git rm [文件名]</code></pre>
-<h3 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h3><h4 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h4><pre><code class="bash">git branch</code></pre>
-<h4 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h4><pre><code class="bash">git branch [分支名]</code></pre>
-<h4 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h4><pre><code class="bash">git switch [分支名]</code></pre>
-<h4 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h4><pre><code class="bash">git merge [分支名]</code></pre>
-<h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><pre><code class="bash">git branch -d [分支名]</code></pre>
-<h3 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h3><h4 id="查看标签"><a href="#查看标签" class="headerlink" title="查看标签"></a>查看标签</h4><pre><code class="bash">git tag</code></pre>
-<h4 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h4><pre><code class="bash">git tag [标签名]</code></pre>
-<h4 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h4><pre><code class="bash">git tag -d [标签名]</code></pre>
-<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><pre><code class="bash">git remote add origin [Git的ssh地址]</code></pre>
-<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><pre><code class="bash">git push -u origin master</code></pre>
-<h3 id="推送更新到远程仓库"><a href="#推送更新到远程仓库" class="headerlink" title="推送更新到远程仓库"></a>推送更新到远程仓库</h3><pre><code class="bash">git push origin master</code></pre>
-<h3 id="强制推送到远程仓库"><a href="#强制推送到远程仓库" class="headerlink" title="强制推送到远程仓库"></a>强制推送到远程仓库</h3><pre><code class="bash">git push origin master -f</code></pre>
-<h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><pre><code class="bash">git remote</code></pre>
-<h3 id="删除远程仓库"><a href="#删除远程仓库" class="headerlink" title="删除远程仓库"></a>删除远程仓库</h3><pre><code class="bash">git remote rm [仓库名]</code></pre>
-
+            <h1 id="OpenCv"><a href="#OpenCv" class="headerlink" title="OpenCv"></a>OpenCv</h1><h3 id="什么是opencv？"><a href="#什么是opencv？" class="headerlink" title="什么是opencv？"></a>什么是opencv？</h3><p>opencv是一个跨平台的计算机视觉库，由一系列函数构成，可以对照片进行一系列操作。</p>
+<h2 id="颜色模型"><a href="#颜色模型" class="headerlink" title="颜色模型"></a>颜色模型</h2><h3 id="RGB模型"><a href="#RGB模型" class="headerlink" title="RGB模型"></a>RGB模型</h3><p>RGB模型是指图片由三个通道 <strong>红色（red）</strong>、 <strong>绿色（green）</strong>、和 <strong>蓝色（blue）</strong>构成</p>
+<p>，每个值从0到255构成，0代表无，255代表最大值，</p>
+<h3 id="CMKY模型"><a href="#CMKY模型" class="headerlink" title="CMKY模型"></a>CMKY模型</h3><h3 id="HSI颜色模型"><a href="#HSI颜色模型" class="headerlink" title="HSI颜色模型"></a>HSI颜色模型</h3>
             <hr>
           </div>
           <br>
@@ -213,7 +193,9 @@
               <span>
                 <i class="iconfont icon-tag"></i>
                 
-                  <a class="hover-with-bg" href="/tags/Git">Git</a>
+                  <a class="hover-with-bg" href="/tags/%E6%91%84%E5%BD%B1">摄影</a>
+                
+                  <a class="hover-with-bg" href="/tags/opencv">opencv</a>
                 
               </span>
             
@@ -424,7 +406,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Git常用命令&nbsp;",
+        "从OpenCv到照片调色&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

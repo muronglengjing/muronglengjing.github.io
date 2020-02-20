@@ -4,6 +4,62 @@
   
   
   <entry>
+    <title>来做个课程表吧（一）</title>
+    <link href="/2020/02/20/do-a-classbook-1/"/>
+    <url>/2020/02/20/do-a-classbook-1/</url>
+    
+    <content type="html"><![CDATA[<p>手机端的课程表种类繁多，但电脑端的课程表种类却很少，也不支持自动导课。既然这样就让我们来造轮子吧。</p><p>[toc]</p><h2 id="获取课程表"><a href="#获取课程表" class="headerlink" title="获取课程表"></a>获取课程表</h2><p>首先我们先去获取课程表。登录教务，点击 <strong>学生课表查询</strong>，进入课表界面，按<strong>F12</strong>，导航到 <strong>Network</strong>，按下 <strong>ctrl</strong>+ <strong>r</strong>刷新界面，界面更新后，下面出现了几个文件，让我们一个个查看。</p><img src="https://img-blog.csdnimg.cn/20200220142854836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="image-20200220113238781" style="zoom:50%;" /><p>接下来点击 <strong>Preview</strong>，当我们找到第三个的时候我们可以发现里面包含了课程名、时间等，正好是我们需要的内容。</p><img src="https://img-blog.csdnimg.cn/20200220142943160.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="image-20200220113418598" style="zoom:50%;" /><p>接下来我们用右键选择 <strong>Copy response</strong>，然后这个JSON就保存到我们的粘贴板上了。</p><img src="https://img-blog.csdnimg.cn/20200220143013947.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="image-20200220113524084" style="zoom:50%;" /><h1 id="制作课程表"><a href="#制作课程表" class="headerlink" title="制作课程表"></a>制作课程表</h1><h2 id="读取JSON数据"><a href="#读取JSON数据" class="headerlink" title="读取JSON数据"></a>读取JSON数据</h2><p>接下来我们使用python来制作课程表</p><p>首先导入json包，然后导入刚才粘贴的数据，然后把它打印出来</p><pre><code class="python"># -*- coding:GBK -*-         # 文件编码import jsonclass_js = &#39;&#39;&#39;[复制刚才的粘贴内容在这里]&#39;&#39;&#39;js = json.loads(class_js)  # 转化为jsonprint(js)</code></pre><p>输出结果是这样的：</p><p><img src="https://img-blog.csdnimg.cn/20200220143115350.png" srcset="/img/loading.gif" alt="image-20200220114157479"></p><p>结果是我们要的数据</p><h2 id="获取课程"><a href="#获取课程" class="headerlink" title="获取课程"></a>获取课程</h2><p>我们可以看到课程数据保存在<strong>kbList</strong>这个值里，我们只用把这个值下面的数据全部取出来。</p><img src="https://img-blog.csdnimg.cn/20200220143137591.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="image-20200220114520679" style="zoom: 67%;" /><p>他的键值对是这样的</p><table><thead><tr><th>键</th><th>值</th></tr></thead><tbody><tr><td>kcmc</td><td>课程名</td></tr><tr><td>xm</td><td>讲师</td></tr><tr><td>zcd</td><td>周数</td></tr><tr><td>jcor</td><td>节数</td></tr><tr><td>xqjmc</td><td>星期</td></tr><tr><td>cdmc</td><td>地点</td></tr></tbody></table><p>接下来我们把需要的数据输出一下</p><pre><code class="python">for course in js[&quot;kbList&quot;]:    scr = &quot;课程名:\n{}\n讲师:{}\n节:{}\n周:{}&quot;.format(        course[&quot;kcmc&quot;], course[&quot;xm&quot;], course[&quot;zcd&quot;], course[&quot;jcor&quot;])    print(scr)</code></pre><p>打印的结果是这样的：</p><img src="https://img-blog.csdnimg.cn/2020022014315311.png" srcset="/img/loading.gif" alt="image-20200220114817546" style="zoom: 67%;" /><h2 id="格式化课程表"><a href="#格式化课程表" class="headerlink" title="格式化课程表"></a>格式化课程表</h2><p>这样我们就完成了课程表的制作，但这是不完善的。</p><p>比如竖着一排看起来很麻烦，而且找课程也不方便，接下来我们来给课程表添加一个界面。</p><p>我们挑选tkinter来给完成这个界面。</p><h3 id="创建窗体"><a href="#创建窗体" class="headerlink" title="创建窗体"></a>创建窗体</h3><p>首先我们要<strong>导入tkinter</strong>，并<strong>创建一个窗体</strong>。</p><pre><code class="python">from tkinter import *top = Tk()  # 创建一个窗体top.geometry(&quot;1100x400+200+50&quot;) # 改变窗体的大小top.mainloop()  # 进入消息循环</code></pre><p>显示效果为</p><img src="https://img-blog.csdnimg.cn/20200220143210110.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="image-20200220135607560" style="zoom:50%;" /><h3 id="显示课程"><a href="#显示课程" class="headerlink" title="显示课程"></a>显示课程</h3><p>我们根据星期几来放置课程，星期一一列星期二一列。</p><p>首先我们要创建一个列表来记录星期的数据，再创建一个字典来保存当前天有几节课。</p><pre><code class="python">week = [&quot;星期一&quot;, &quot;星期二&quot;, &quot;星期三&quot;, &quot;星期四&quot;, &quot;星期五&quot;, &quot;星期六&quot;, &quot;星期日&quot;]y = {}</code></pre><p>接下来我们把为每个课程数据创建一个文本控件，并把文本放在里面。</p><pre><code class="python">for course in js[&quot;kbList&quot;]:    scr = &quot;课程名:\n{}\n讲师:{}\n节:{}\n周:{}&quot;.format(        course[&quot;kcmc&quot;], course[&quot;xm&quot;], course[&quot;zcd&quot;], course[&quot;jcor&quot;])    print(scr)    # 确认文本的位置    x = week.index(course[&quot;xqjmc&quot;])    if course[&quot;xqjmc&quot;] in y:        y[course[&quot;xqjmc&quot;]] = y[course[&quot;xqjmc&quot;]] + 1    else:        y[course[&quot;xqjmc&quot;]] = 0    text = Text(top, width=30, height=5)  # 创建一个文本控件    text.place(x=x * 215 + 10, y=y[course[&quot;xqjmc&quot;]] * 70 + 20)  # 在屏幕上放置文本控件    text.insert(INSERT, scr)  # 在控件上放置文本</code></pre><p>通过x保存星期的天数，并格式化为0~7，用y保存一天有几节课。</p><p>最后进入消息循环：</p><pre><code class="python">top.mainloop()  # 进入消息循环</code></pre><p>运行的结果是：</p><img src="https://img-blog.csdnimg.cn/20200220143231624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" style="zoom:50%;" /><p>当然，这样的结果并不能让我们满意。我们希望能够根据当前所在的周数显示课程。而且这个界面也太丑了，还不如直接下载课程来的方便。下面让我们来改进课程表。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+      <category>python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>课程表</tag>
+      
+      <tag>tkinter</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>从OpenCv到照片调色</title>
+    <link href="/2020/02/19/%E4%BB%8EOpenCv%E5%88%B0%E7%85%A7%E7%89%87%E8%B0%83%E8%89%B2/"/>
+    <url>/2020/02/19/%E4%BB%8EOpenCv%E5%88%B0%E7%85%A7%E7%89%87%E8%B0%83%E8%89%B2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="OpenCv"><a href="#OpenCv" class="headerlink" title="OpenCv"></a>OpenCv</h1><h3 id="什么是opencv？"><a href="#什么是opencv？" class="headerlink" title="什么是opencv？"></a>什么是opencv？</h3><p>opencv是一个跨平台的计算机视觉库，由一系列函数构成，可以对照片进行一系列操作。</p><h2 id="颜色模型"><a href="#颜色模型" class="headerlink" title="颜色模型"></a>颜色模型</h2><h3 id="RGB模型"><a href="#RGB模型" class="headerlink" title="RGB模型"></a>RGB模型</h3><p>RGB模型是指图片由三个通道 <strong>红色（red）</strong>、 <strong>绿色（green）</strong>、和 <strong>蓝色（blue）</strong>构成</p><p>，每个值从0到255构成，0代表无，255代表最大值，</p><h3 id="CMKY模型"><a href="#CMKY模型" class="headerlink" title="CMKY模型"></a>CMKY模型</h3><h3 id="HSI颜色模型"><a href="#HSI颜色模型" class="headerlink" title="HSI颜色模型"></a>HSI颜色模型</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>摄影</tag>
+      
+      <tag>opencv</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Git常用命令</title>
     <link href="/2020/02/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/"/>
     <url>/2020/02/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/</url>
