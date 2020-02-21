@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>来做个课程表吧（三）</title>
+    <link href="/2020/02/21/do-a-classbook-3/"/>
+    <url>/2020/02/21/do-a-classbook-3/</url>
+    
+    <content type="html"><![CDATA[<p>实际上两个版本的界面还是不能让人满意，接下来我们来用<strong>pygame</strong>来为课程表优化界面吧。</p><p>[toc]</p><h1 id="保存课程表数据"><a href="#保存课程表数据" class="headerlink" title="保存课程表数据"></a>保存课程表数据</h1><p>我们把数据保存在外部文件上，方便多次修改于调用。</p><p>用<em>data.json</em>来保存开始的时间，和数据中保存数据中保存名字、周等的键名。</p><pre><code class="json">{  &quot;start&quot;: [2020, 2, 20],  &quot;book&quot;: {    &quot;name&quot;:&quot;kcmc&quot;,    &quot;teacher&quot;:&quot;xm&quot;,    &quot;week&quot;: &quot;zcd&quot;,    &quot;part&quot;: &quot;jcor&quot;,    &quot;weekday&quot;: &quot;xqjmc&quot;,    &quot;address&quot;: &quot;cdmc&quot;}}</code></pre><p>用<em>class.json</em>保存课程数据，这样在不同的更新课表后不用修改代码直接修改课程文件即可。</p><p>然后打开这两个文件，并转化为json。</p><pre><code class="python"># 用外部文件来保存键值对with open(&quot;data.json&quot;, &quot;r&quot;) as f:    init = json.loads(f.read())# 保存课程数据with open(&quot;class.json&quot;, &quot;rb&quot;) as f:    class_js = f.read()    js = json.loads(class_js)  # 转化为json</code></pre><h1 id="绘制课程表"><a href="#绘制课程表" class="headerlink" title="绘制课程表"></a>绘制课程表</h1><h2 id="初始化窗口"><a href="#初始化窗口" class="headerlink" title="初始化窗口"></a>初始化窗口</h2><p>定义一个970*720的窗口大小，将屏幕填充为白色。设置标题为课程表。</p><pre><code class="python">pygame.init()screen = pygame.display.set_mode([970, 720])screen.fill([255, 255, 255])pygame.display.set_caption(&quot;课程表&quot;)</code></pre><h2 id="绘制课程表的背景"><a href="#绘制课程表的背景" class="headerlink" title="绘制课程表的背景"></a>绘制课程表的背景</h2><p>课程表的背景有</p><ol><li><p>一条条颜色渐变的方块（区分不同节课）</p></li><li><p>一块显示当前星期几的方块</p></li><li><p>在最上面显示星期</p></li></ol><pre><code class="python">def c_box(week):    for i in range(18):        pygame.draw.rect(screen, [255-15*i, 255, 170+5*i], [0, 45 + 45 * (i-1), 1080, 45], 0)    # 显示当前星期几    surface = pygame.Surface((135, 720))    surface.fill([240, 240, 200])    surface.set_alpha(150)    screen.blit(surface, ((week - 1) * 130 + 50, 0))    # 设置字体    my_font = pygame.font.SysFont(&quot;microsoftyaheimicrosoftyaheiui&quot;, 30)    weekday = [&quot;星期一&quot;, &quot;星期二&quot;, &quot;星期三&quot;, &quot;星期四&quot;, &quot;星期五&quot;, &quot;星期六&quot;, &quot;星期日&quot;]    for i in range(7):        text = my_font.render(weekday[i], True, [100, 200, 255], [255, 255, 255])        text.set_colorkey([255, 255, 255]) # 透明化        screen.blit(text, (130*i + 75, 5))</code></pre><p>显示的结果为：</p><img src="C:\Users\ruanq\AppData\Roaming\Typora\typora-user-images\image-20200221101415386.png" srcset="/img/loading.gif" style="zoom: 50%;" /><h2 id="绘制课程表小格子"><a href="#绘制课程表小格子" class="headerlink" title="绘制课程表小格子"></a>绘制课程表小格子</h2><h3 id="定义课程格子类"><a href="#定义课程格子类" class="headerlink" title="定义课程格子类"></a>定义课程格子类</h3><p>课程的小格子根据课程时间长短确认</p><p>定义一个课程格子类</p><p>其中输入为：</p><ol><li>要显示的课程信息</li><li>课程在星期几上课</li><li>课程开始的节数</li><li>课程结束的节数</li></ol><p>课程格子的颜色随机，文本根据换行符排列。</p><p>最后用一个精灵组来保存每个课程格子。</p><pre><code class="python"># 课程表里的每个格子class Class_list(pygame.sprite.Sprite):    def __init__(self, text, weekday, start, end):        # 继承        super().__init__()        # 分割文本        self.text = text.split(&quot;\n&quot;)        self.weekday = weekday        # 设置控件的大小        self.image = pygame.Surface((125, 80*(end-start)))        self.r, self.g, self.b = random.randint(0, 254), random.randint(0, 254), random.randint(0, 254)        self.image.fill([self.r, self.g, self.b])        self.image.set_alpha(200) # 透明化        # 设置控件的位置        self.rect = pygame.Rect((130*weekday + 55, 45*start), self.image.get_size())        # 绘制字体        self.font()    def font(self):        # 定义一个字体        my_font = pygame.font.SysFont(&quot;microsoftyaheimicrosoftyaheiui&quot;, 15)        # 如果背景为浅色则前景为深色        if 0.21 * self.r + 0.72 * self.g + 0.07 * self.b &gt; 200:            color = [0, 0, 0]        else:            color = [255, 255, 255]        n = 0        # 每行打印一句话        for i in self.text:            text = my_font.render(i, True, color, [self.r, self.g, self.b])            self.image.blit(text, (0, n*20))            n += 1class_box = pygame.sprite.Group()</code></pre><h3 id="判断课程是否符合条件"><a href="#判断课程是否符合条件" class="headerlink" title="判断课程是否符合条件"></a>判断课程是否符合条件</h3><p>同上一篇博客。</p><pre><code class="python">for course in js[&quot;kbList&quot;]:    scr = &quot;{}\n讲师 {}\n周 {}\n地点 {}&quot;.format(        course[key[&quot;name&quot;]], course[key[&quot;teacher&quot;]], course[key[&quot;week&quot;]], course[key[&quot;address&quot;]])    week = course[key[&quot;week&quot;]]    # 判断课程是否是单双周的课程    if &quot;单&quot; in week:        week = week.replace(&quot;周(单)&quot;, &quot;&quot;)        week = week.split(&quot;-&quot;)        # 开始周/结束周        start_week, end_week = eval(week[0]), eval(week[-1])        if weeks % 2 == 1: # 判断是否是单周            if start_week &lt;= weeks &lt;= end_week:  # 判断该课程是否是当前周的课程                if start_week &lt;= weeks &lt;= end_week:  # 判断该课程是否是当前周的课程                    # 根据节来优化显示效果                    read_class(course, key)</code></pre><h3 id="绘制小格子"><a href="#绘制小格子" class="headerlink" title="绘制小格子"></a>绘制小格子</h3><p>如果判断正确，就绘制课程小格子。输入的内容为课程的数据。</p><pre><code class="python">def read_class(course):    scr = &quot;{}\n讲师 {}\n周 {}\n地点 {}&quot;.format(        course[key[&quot;name&quot;]], course[key[&quot;teacher&quot;]], course[key[&quot;week&quot;]], course[key[&quot;address&quot;]]) # 要显示的课程信息    part = course[key[&quot;part&quot;]]    part = part.split(&quot;-&quot;)    start_part, end_part = eval(part[0]), eval(part[-1])    # 确认文本的位置    x = weekday.index(course[key[&quot;weekday&quot;]])    li = Class_list(scr, x, start_part, end_part)    class_box.add(li)</code></pre><h1 id="绘制屏幕"><a href="#绘制屏幕" class="headerlink" title="绘制屏幕"></a>绘制屏幕</h1><p>把课程格子绘制在屏幕上，最后更新屏幕。</p><pre><code class="python">class_box.draw(screen)pygame.display.update()while True:    for event in pygame.event.get():        if event.type == pygame.QUIT:            # 退出游戏            pygame.quit()            break</code></pre><p>最后的显示效果为：</p><img src="https://img-blog.csdnimg.cn/20200221092754789.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L211cm9uZ2xlbmdqaW5n,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt="在这里插入图片描述" style="zoom: 50%;" /><p>我们的课程表就做好啦！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+      <category>python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>课程表</tag>
+      
+      <tag>tkinter</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>来做个课程表吧（二）</title>
     <link href="/2020/02/20/do-a-classbook-2/"/>
     <url>/2020/02/20/do-a-classbook-2/</url>
