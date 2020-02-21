@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="description" content="">
+  <meta name="author" content="RQY">
+  <meta name="keywords" content="">
+  <title>tkinter快速入门 ~ 灯</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>灯</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/light.jpg')no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期五, 二月 21日 2020, 10:40 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    638 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      2 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <p>[toc]</p>
+<h1 id="Frame框架"><a href="#Frame框架" class="headerlink" title="Frame框架"></a>Frame框架</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td>父组件</td>
+<td>要将组件放置的位置</td>
+</tr>
+</tbody></table>
+<h1 id="Label文本框"><a href="#Label文本框" class="headerlink" title="Label文本框"></a>Label文本框</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>text</td>
+<td>字符串</td>
+<td>文本</td>
+</tr>
+<tr>
+<td>bg</td>
+<td>字符串</td>
+<td>背景色</td>
+</tr>
+<tr>
+<td>fg</td>
+<td>字符串</td>
+<td>前景色</td>
+</tr>
+<tr>
+<td>font</td>
+<td>([表示字体的字符串]， 大小)</td>
+<td>字体</td>
+</tr>
+<tr>
+<td>width</td>
+<td>数字</td>
+<td>宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td>数字</td>
+<td>高度</td>
+</tr>
+<tr>
+<td>justify</td>
+<td>“left”, “center”,  “right”</td>
+<td>文本对齐的方式</td>
+</tr>
+</tbody></table>
+<h1 id="Entry单行文本框"><a href="#Entry单行文本框" class="headerlink" title="Entry单行文本框"></a>Entry单行文本框</h1><h2 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>show</td>
+<td>字符</td>
+<td>作为密码时显示的内容</td>
+</tr>
+<tr>
+<td>textvariable</td>
+<td>tkinter.Variable()</td>
+<td>替代文本选项资源</td>
+</tr>
+<tr>
+<td>width</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="获取文本"><a href="#获取文本" class="headerlink" title="获取文本"></a>获取文本</h3><pre><code class="python">Entry.get()</code></pre>
+<h3 id="删除文本"><a href="#删除文本" class="headerlink" title="删除文本"></a>删除文本</h3><pre><code class="python">Text.delete([整数索引1]，[整数索引2])</code></pre>
+<table>
+<thead>
+<tr>
+<th>整数索引</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>开头</td>
+</tr>
+<tr>
+<td>tkinter.INSERT</td>
+<td>光标</td>
+</tr>
+<tr>
+<td>tkinter.END</td>
+<td>结尾</td>
+</tr>
+</tbody></table>
+<h1 id="Text多行文本框"><a href="#Text多行文本框" class="headerlink" title="Text多行文本框"></a>Text多行文本框</h1><h2 id="选项-1"><a href="#选项-1" class="headerlink" title="选项"></a>选项</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>width</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>height</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h2><h3 id="插入文本"><a href="#插入文本" class="headerlink" title="插入文本"></a>插入文本</h3><pre><code class="python">Text.insert([浮点数索引]， 文本)</code></pre>
+<table>
+<thead>
+<tr>
+<th>浮点数索引</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0.0/1.0</td>
+<td>在开头插入</td>
+</tr>
+<tr>
+<td>tkinter.INSERT</td>
+<td>在光标插入</td>
+</tr>
+<tr>
+<td>tkinter.END/2.0</td>
+<td>在结尾插入</td>
+</tr>
+</tbody></table>
+<h3 id="获取文本-1"><a href="#获取文本-1" class="headerlink" title="获取文本"></a>获取文本</h3><pre><code class="python">Text.get([浮点数索引1]，[浮点数索引2])</code></pre>
+<h3 id="清除文本"><a href="#清除文本" class="headerlink" title="清除文本"></a>清除文本</h3><pre><code class="python">Text.delete([浮点数索引1]，[浮点数索引2])</code></pre>
+<h1 id="Scrollbar滚动条"><a href="#Scrollbar滚动条" class="headerlink" title="Scrollbar滚动条"></a>Scrollbar滚动条</h1><h2 id="绑定"><a href="#绑定" class="headerlink" title="绑定"></a>绑定</h2><p>在能够向下滚动的部件 如 <em>多行文本框、列表</em>等参数中加入<code>yscrollcommand=scroll.set</code>（同样也有<code>xscrollcommand=scroll.set</code>），即可绑定滚动条。</p>
+<p>然后再把函数</p>
+<p>控件Scrollbar.config(command=[绑定的控件].yview)</p>
+<h1 id="Button按钮"><a href="#Button按钮" class="headerlink" title="Button按钮"></a>Button按钮</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>text</td>
+<td>字符串</td>
+<td>按钮文本</td>
+</tr>
+<tr>
+<td>command</td>
+<td>函数对象（不带括号）</td>
+<td>按下要执行的函数</td>
+</tr>
+<tr>
+<td>width</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>height</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="Radiobutton单选框"><a href="#Radiobutton单选框" class="headerlink" title="Radiobutton单选框"></a>Radiobutton单选框</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>text</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>value</td>
+<td>整形数字</td>
+<td>排序</td>
+</tr>
+<tr>
+<td>variable</td>
+<td>tkinter.IntVar()</td>
+<td>虚拟变量。绑定同一虚拟变量可以辨别单选框。</td>
+</tr>
+<tr>
+<td>command</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="Checkbutton多选框"><a href="#Checkbutton多选框" class="headerlink" title="Checkbutton多选框"></a>Checkbutton多选框</h1><table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>text</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>variable</td>
+<td>tkinter.BooleanVar()</td>
+<td>绑定的虚拟变量</td>
+</tr>
+<tr>
+<td>command</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="Listbox列表"><a href="#Listbox列表" class="headerlink" title="Listbox列表"></a>Listbox列表</h1><h2 id="选项-2"><a href="#选项-2" class="headerlink" title="选项"></a>选项</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>selectmode</td>
+<td>“single”、”browse”、”multiple”、”extended”</td>
+<td>选择模式。单选，拖动/按动多选，多选，Ctrl/Shift多选</td>
+</tr>
+</tbody></table>
+<h2 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h2><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><pre><code class="python">Listbox().insert([插入的索引]，[插入的文本])</code></pre>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre><code class="python">Listbox().delete([索引1]，[索引2])</code></pre>
+<h3 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h3><pre><code class="python">Listbox().get([索引1]，[索引2])</code></pre>
+<h1 id="Scale拖动条"><a href="#Scale拖动条" class="headerlink" title="Scale拖动条"></a>Scale拖动条</h1><h2 id="选项-3"><a href="#选项-3" class="headerlink" title="选项"></a>选项</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>from_</td>
+<td>数字</td>
+<td>开始</td>
+</tr>
+<tr>
+<td>to</td>
+<td>数字</td>
+<td>结束</td>
+</tr>
+<tr>
+<td>length</td>
+<td>数字</td>
+<td>长度</td>
+</tr>
+<tr>
+<td>tickinterval</td>
+<td>数字</td>
+<td>刻度间隔</td>
+</tr>
+<tr>
+<td>orient</td>
+<td>tkinter.VERTICAL、tkinter.HORIZONTAL</td>
+<td>竖直、水平</td>
+</tr>
+</tbody></table>
+<h2 id="方法-3"><a href="#方法-3" class="headerlink" title="方法"></a>方法</h2><pre><code class="python">Scale().get()</code></pre>
+<h1 id="Spinbox数字选框"><a href="#Spinbox数字选框" class="headerlink" title="Spinbox数字选框"></a>Spinbox数字选框</h1><h2 id="选项-4"><a href="#选项-4" class="headerlink" title="选项"></a>选项</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>from_</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>to</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>increment</td>
+<td>数字</td>
+<td>间隔</td>
+</tr>
+<tr>
+<td>textvariable</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>command</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="方法-4"><a href="#方法-4" class="headerlink" title="方法"></a>方法</h2><pre><code class="python">Spinbox().get()</code></pre>
+<h1 id="Menu菜单"><a href="#Menu菜单" class="headerlink" title="Menu菜单"></a>Menu菜单</h1><h2 id="选项-5"><a href="#选项-5" class="headerlink" title="选项"></a>选项</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="方法-5"><a href="#方法-5" class="headerlink" title="方法"></a>方法</h2><h3 id="菜单条"><a href="#菜单条" class="headerlink" title="菜单条"></a>菜单条</h3><pre><code class="python">menubar = tkinter.Menu(win)
+master.config(menu=menubar)</code></pre>
+<h3 id="菜单项"><a href="#菜单项" class="headerlink" title="菜单项"></a>菜单项</h3><h4 id="添加项头"><a href="#添加项头" class="headerlink" title="添加项头"></a>添加项头</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>master</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tearoff</td>
+<td>布尔类型</td>
+<td>菜单可否单独显示</td>
+</tr>
+</tbody></table>
+<pre><code class="python">menu = tkinter.Menu(menubar, tearoff=False)
+menubar.add_cascade(label=[显示的字符串], menu=menu)</code></pre>
+<h4 id="添加内容"><a href="#添加内容" class="headerlink" title="添加内容"></a>添加内容</h4><pre><code class="python">menu.add_command(label=[显示的字符串], command=[函数])</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                  &nbsp;
+                
+                  <a class="hover-with-bg" href="/categories/python">python</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/tkinter">tkinter</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "bXTvJ0aEiQrw2W0m4q7oJnMw-gzGzoHsz",
+        app_key: "6G7bsJnYnzpvXic24IWjPNFA",
+        placeholder: "来聊天吧",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv"></span>总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv"></span>总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人&nbsp;
+  
+  <br>
+
+
+
+    
+
+
+    <!-- cnzz Analytics icon -->
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smoothscroll/SmoothScroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+    <!-- Baidu Analytics -->
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?515a348c74d5c1f242ab754c1b7a7011";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+    <!-- Tencent Analytics -->
+    <script>
+      var _mtac = {};
+      (function () {
+        var mta = document.createElement("script");
+        mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500023476");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+      })();
+    </script>
+  
+
+  
+
+  <!-- cnzz Analytics -->
+  
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "tkinter快速入门&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "touch",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
