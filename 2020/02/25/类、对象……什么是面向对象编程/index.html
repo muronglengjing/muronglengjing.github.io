@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="RQY">
   <meta name="keywords" content="">
-  <title>分类 - Python ~ 灯</title>
+  <title>类、对象……面向对象编程是啥 ~ 灯</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -106,8 +106,8 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/categories.jpg')no-repeat center center;
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/light.jpg')no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -116,6 +116,41 @@
               
             </span>
 
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期二, 二月 25日 2020, 11:36 中午
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    474 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -127,36 +162,121 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-<!--  <p class="h4">共计 1 篇文章</p>-->
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/02/25/%E5%8F%AA%E7%94%A811%E8%A1%8C%E4%BB%A3%E7%A0%81%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%94%BB%E5%9B%BE%E5%83%8F/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">只用11行代码，轻松画图像</span>
-      <span style="float: right;">02-25</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h1 id="类、对象"><a href="#类、对象" class="headerlink" title="类、对象"></a>类、对象</h1><p>什么是面向对象编程，这是初学者往往感到疑惑。想要弄懂什么是面向对象，你理想的对象长什么样？</p>
+<p>你可能想到很多，比如年轻好看，能歌善舞……当然，你想的不是特定的一个人，而是一类人。</p>
+<p>这类符合你描述的人。这就是 <strong>类</strong> 。</p>
+<p>你理想中的情人是一个类，你对情人有一定的要求，所以类也要有对应的 <strong>属性</strong>和 <strong>方法</strong>。 你要求TA年轻好看，这就是类的属性；你要求TA能歌善舞，这就是类的方法。</p>
+<p>当然，你也可以举例，比如 <em>成果</em> 就是你的TA，那么成果就是符合你的类描述中的 <strong>对象</strong>。你可以用类来快速地创建很多个对象。</p>
+<p>当然，随着时间的推移，你的某些观点可能会发生改变，所以类支持<strong>继承</strong>。</p>
+<p>比如在几年后，你的观点改变了一点，你对情人的要求更高了，你希望TA会做饭，你可以直接继承你直接对情人类的描述，同时加入一个更高的要求：会做饭。这时候你不需要重新在创建一个类来定义你的情人。</p>
+<p>但是，如果你的要求降低了，不想再重新创建一个类怎么办呢？没有问题，你可以对类进行 <strong>重写</strong>，比如把年轻好像改成是个活的，能歌赏舞改成能动。</p>
+<h1 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h1><p>面向对象的好处都有啥，谁说对了就给他。</p>
+<p>明显，面向对象的好处是可以快速重用代码，你可以根据一个类频繁地创建多个对象而不需要多次进行定义。</p>
+<h1 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h1><p>下面哪个是类哪个是对象呢？用笔勾起来吧：</p>
+<table>
+<thead>
+<tr>
+<th><strong>手机</strong></th>
+<th><strong>三星S10</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>太阳</strong></td>
+<td><strong>恒星</strong></td>
+</tr>
+</tbody></table>
 
-
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">面向对象</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "bXTvJ0aEiQrw2W0m4q7oJnMw-gzGzoHsz",
+        app_key: "6G7bsJnYnzpvXic24IWjPNFA",
+        placeholder: "来聊天吧",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -235,6 +355,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smoothscroll/SmoothScroll.min.js" ></script>
@@ -299,7 +424,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类 - Python&nbsp;",
+        "类、对象……面向对象编程是啥&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
