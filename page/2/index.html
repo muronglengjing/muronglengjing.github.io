@@ -144,6 +144,66 @@
     
     
     <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/02/17/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%90%A7/">
+        <p class="h4 index-header">来搭建属于你的博客吧</p>
+      </a>
+
+      <a href="/2020/02/17/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%90%A7/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">要想搭建一个属于自己的博客平台，你需要
+
+一个Github账号和Gitee账号（搭建免费的服务平台）
+一台电脑（保存你的博客）
+一个图床（保存图片）
+
+搭建博客安装hexo具体安装过程可以参考Hexo文档
+同步Github首先我们要在Github创建一个仓库，仓库的名字的格式应该是你的用户名.github.io，记下仓库的地址http的地址，然后我们修改 _config.yml文件，在最后一行的改成
+deploy:
+  type: git
+  repository: [你的仓库地址]
+  branch: master
+再根据hexo官方文档的指引，增加 .travis.yml文件.
+然后在控制台输入以下命令
+npm install hexo-deployer-git
+同步码云在码云里，新建一个 仓库，名字要与你的用户名相同点击管理，填入仓库远程地址，点击保存 。
+找到 服务，点击 Gitee Pages，开启服务。
+更新博客创建一篇新博客在Git bash中输入
+hexo n [文章的标题]
+如果标题中带空格则需要用英文的双引号括起。
+接着在当前目录下可以找到 source\_post</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-17&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Git">Git</a>&nbsp;
+          
+            <a href="/tags/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a href="/2020/02/16/%E9%BB%84%E6%B2%99%E4%B9%8B%E4%B8%8A%EF%BC%8C%E6%98%AF%E4%BD%A0%E7%9A%84%E6%95%85%E4%B9%A1%E5%90%97/">
         <p class="h4 index-header">黄沙之上，是你的故乡吗</p>
       </a>

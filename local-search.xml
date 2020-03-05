@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>VB数据于函数</title>
+    <link href="/2020/03/05/VB/"/>
+    <url>/2020/03/05/VB/</url>
+    
+    <content type="html"><![CDATA[<p>一开始我以为，已经停更了二十几年的VB已经没有太大加载，在昨天我研究如何在office2016上如何运行flash的时候（flash已经快停止维护了，还用flash做PPT的老师可长点心吧），发现了一个神奇的功能：</p><p><img src="https://s2.ax1x.com/2020/03/05/37LuNQ.md.png" srcset="/img/loading.gif" alt="图像"></p><p>中间的一些功能似曾相识，拖动几个看看</p><img src="https://s2.ax1x.com/2020/03/05/37L5vt.png" srcset="/img/loading.gif" alt="图床" style="zoom:50%;" /><p>咦咦咦？这是要在PPT中跑程序吗？</p><p>双击任意控件，弹出编程窗口：</p><img src="https://s2.ax1x.com/2020/03/05/37OuqK.md.png" srcset="/img/loading.gif" alt="开发" style="zoom: 67%;" /><p>这就是VB没错了。更加准确地说，应该叫VBA，VB宏语言，可以替代人工地一些按键操作，并且在Office套件里面都是支持的。</p><p>这就意味着，使用PPT不仅仅只是页面切换，还可以有一种更加高级的玩法了。比如基于PPT的程序，自动整理数据等……如此方便的东西，还不赶快学起来！</p><p>首先让我们认识下VB的数据</p><h1 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>首先我们来认识下VB的数据类型。</p><table><thead><tr><th>类型</th><th>标识符</th><th>简写</th></tr></thead><tbody><tr><td>整数</td><td>Integer</td><td>%</td></tr><tr><td>长整数</td><td>Long</td><td>&amp;</td></tr><tr><td>浮点数Single</td><td>Single</td><td>！</td></tr><tr><td>高精度浮点数</td><td>Double</td><td>#</td></tr><tr><td>字符</td><td>String</td><td></td></tr><tr><td>布尔</td><td>Boolean</td><td></td></tr></tbody></table><h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h3><pre><code class="vb">Dim [变量名] As [数据类型]</code></pre><p>或者使用简写</p><pre><code class="vb">Dim [变量名][简写]</code></pre><p>或者直接进行赋值</p><pre><code class="vb">[变量名] = [值]</code></pre><h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><h3 id="定义常量"><a href="#定义常量" class="headerlink" title="定义常量"></a>定义常量</h3><pre><code class="vb">Const [常量名] = [数值]</code></pre><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="定义数组"><a href="#定义数组" class="headerlink" title="定义数组"></a>定义数组</h3><pre><code class="vb">Dim [数组名](数组个数) As [数据类型]</code></pre><p>或者简写为</p><pre><code class="vb">Dim [数组名](数组个数)</code></pre><p>###　指定角标</p><pre><code class="vb">Dim [数组名]([起始值] to [结尾值])</code></pre><h3 id="定义多维数组"><a href="#定义多维数组" class="headerlink" title="定义多维数组"></a>定义多维数组</h3><p>定义个数A×数组个数B×…个数据</p><pre><code class="vb">Dim [数组名](数组个数A, 数组个数B, ...) As [数组类型]</code></pre><h2 id="自定义类型"><a href="#自定义类型" class="headerlink" title="自定义类型"></a>自定义类型</h2><h3 id="定义自定义类型"><a href="#定义自定义类型" class="headerlink" title="定义自定义类型"></a>定义自定义类型</h3><p>有时我们需要一些别的数据类型，我们可以进行自定义</p><pre><code class="vb">Type [类型名]&lt;子类型&gt; As &lt;数据类型&gt;&lt;子类型&gt; As &lt;数据类型&gt;...End Type</code></pre><h3 id="赋值自定义类型"><a href="#赋值自定义类型" class="headerlink" title="赋值自定义类型"></a>赋值自定义类型</h3><pre><code class="vb">[变量名] As [类型名][变量名].[子类型] = [赋值]</code></pre><p>同时可以使用 With 关键字</p><pre><code class="vb">With [变量名].[子类型] = [赋值]End With</code></pre><h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h2><pre><code class="vb">Private/Public Static Function [函数名]([参数], [参数], [...]) As [数据类型]        [函数语句]        [函数名] = k ‘相反于return返回值End Function</code></pre><h2 id="使用函数"><a href="#使用函数" class="headerlink" title="使用函数"></a>使用函数</h2><pre><code class="vb">[对象] = [函数名](参数)</code></pre><p>简单的，也可以</p><pre><code class="vb">[函数名](参数)</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+      <category>VBA</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>宏语言</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>科里奥利力的方向</title>
     <link href="/2020/02/28/coriolis-force/"/>
     <url>/2020/02/28/coriolis-force/</url>
