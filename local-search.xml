@@ -5,8 +5,8 @@
   
   <entry>
     <title>VB控制语句</title>
-    <link href="/2020/03/06/VBcon/"/>
-    <url>/2020/03/06/VBcon/</url>
+    <link href="/2020/03/06/VBcontrol/"/>
+    <url>/2020/03/06/VBcontrol/</url>
     
     <content type="html"><![CDATA[<h1 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h1><p>单层条件语句</p><pre><code class="vb">If [条件] Then [语句1] Else [语句2]</code></pre><p>多层条件语句</p><pre><code class="vb">If [条件] Then    [语句]ElseIf [条件] Then    [语句]...Else    [语句]End If</code></pre><p>Case语句</p><pre><code class="vb">Select Case [条件]Case [条件]    [语句]...Case Else    [语句]End Select</code></pre><p>三元表达式</p><pre><code class="vb">IIf([条件], [语句1], [语句2])</code></pre><h1 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h1><h2 id="For循环"><a href="#For循环" class="headerlink" title="For循环"></a>For循环</h2><pre><code class="vb">For [循环变量] = [初值] to [终值] Step [步长][语句]Next</code></pre><h2 id="While-Until循环"><a href="#While-Until循环" class="headerlink" title="While/Until循环"></a>While/Until循环</h2><pre><code class="vb">Do While/Until [条件]    [语句]Loop</code></pre><p>或者</p><pre><code class="vb">Do    [语句]Loop While/Until [条件]</code></pre><p>对于While Loop循环，还有可替换的</p><pre><code class="VB">While [条件]    [语句]Wend</code></pre>]]></content>
     
