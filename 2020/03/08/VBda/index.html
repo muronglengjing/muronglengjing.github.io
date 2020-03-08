@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="RQY">
   <meta name="keywords" content="">
-  <title>归档 ~ 灯</title>
+  <title>VB数据进阶与运算符 ~ 灯</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -106,8 +106,8 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/archive.jpg')no-repeat center center;
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/miku.jpg')no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -116,6 +116,41 @@
               
             </span>
 
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期日, 三月 8日 2020, 6:07 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    161 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -127,65 +162,269 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 14 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/02/19/%E4%BB%8EOpenCv%E5%88%B0%E7%85%A7%E7%89%87%E8%B0%83%E8%89%B2/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">从OpenCv到照片调色</span>
-      <span style="float: right;">02-19</span>
-    </a>
-  
-    
-    <a href="/2020/02/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Git常用命令</span>
-      <span style="float: right;">02-17</span>
-    </a>
-  
-    
-    <a href="/2020/02/17/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%90%A7/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">来搭建属于你的博客吧</span>
-      <span style="float: right;">02-17</span>
-    </a>
-  
-    
-    <a href="/2020/02/16/%E9%BB%84%E6%B2%99%E4%B9%8B%E4%B8%8A%EF%BC%8C%E6%98%AF%E4%BD%A0%E7%9A%84%E6%95%85%E4%B9%A1%E5%90%97/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">黄沙之上，是你的故乡吗</span>
-      <span style="float: right;">02-16</span>
-    </a>
-  
-</div>
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2020/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
-      ele.href += '#board';
-    }
-  </script>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h1 id="数据类型扩展"><a href="#数据类型扩展" class="headerlink" title="数据类型扩展"></a>数据类型扩展</h1><h2 id="额外的数据类型"><a href="#额外的数据类型" class="headerlink" title="额外的数据类型"></a>额外的数据类型</h2><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Byte</td>
+<td>字节</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>日期</td>
+</tr>
+<tr>
+<td>Currency</td>
+<td>货币</td>
+</tr>
+<tr>
+<td>Variant</td>
+<td>变体</td>
+</tr>
+</tbody></table>
+<h2 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CByte()</td>
+<td>字节</td>
+</tr>
+<tr>
+<td>CBool()</td>
+<td>布尔类型</td>
+</tr>
+<tr>
+<td>CInt()</td>
+<td>整数</td>
+</tr>
+<tr>
+<td>CLng()</td>
+<td>长整数</td>
+</tr>
+<tr>
+<td>CSng()</td>
+<td>浮点数</td>
+</tr>
+<tr>
+<td>CDbl()</td>
+<td>双精度浮点数</td>
+</tr>
+<tr>
+<td>CCur()</td>
+<td>货币</td>
+</tr>
+<tr>
+<td>CDec()</td>
+<td>文本转数值</td>
+</tr>
+<tr>
+<td>CDate()</td>
+<td>日期</td>
+</tr>
+<tr>
+<td>CStr()</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>Cvar()</td>
+<td>变体</td>
+</tr>
+</tbody></table>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>^</td>
+<td>幂次方</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘</td>
+</tr>
+<tr>
+<td>/</td>
+<td>小数除</td>
+</tr>
+<tr>
+<td>\</td>
+<td>整数除</td>
+</tr>
+<tr>
+<td>Mod</td>
+<td>取余</td>
+</tr>
+<tr>
+<td>+</td>
+<td>加</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减</td>
+</tr>
+</tbody></table>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>等</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>不等于</td>
+</tr>
+</tbody></table>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Not</td>
+<td>非</td>
+</tr>
+<tr>
+<td>And</td>
+<td>与</td>
+</tr>
+<tr>
+<td>Or</td>
+<td>或</td>
+</tr>
+<tr>
+<td>Xor</td>
+<td>异或</td>
+</tr>
+</tbody></table>
 
-
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                  &nbsp;
+                
+                  <a class="hover-with-bg" href="/categories/VBA">VBA</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "bXTvJ0aEiQrw2W0m4q7oJnMw-gzGzoHsz",
+        app_key: "6G7bsJnYnzpvXic24IWjPNFA",
+        placeholder: "来聊天吧",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -264,6 +503,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smoothscroll/SmoothScroll.min.js" ></script>
@@ -328,7 +572,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "VB数据进阶与运算符&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
