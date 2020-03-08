@@ -144,6 +144,99 @@
     
     
     <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/03/08/VBS/">
+        <p class="h4 index-header">VB字符串处理</p>
+      </a>
+
+      <a href="/2020/03/08/VBS/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+
+符号
+含义
+
+
+
+vbCr
+回车
+
+
+cvLf
+换行
+
+
+
+
+
+
+基本处理比较选择比较模式
+Option Compare [模式]
+比较模式有两种可选
+
+
+
+符号
+作用
+
+
+
+Binary
+根据Ascii码，二进制比较
+
+
+Text
+文字比较，不区分大小写,A&lt;…&lt;Z
+
+
+计算长度Len([字符串])
+寻找子串的位置与Python不同的是，VB的索引是从1开始的，既第一个字符为1，第二个字符为2以此类推。
+InStr([起始位置], [字符串], [子串])
+&#39;或者可以简写
+InStr([字符串], [子串])
+拆分Split([字符串], [拆分根据的字符], [返回字符的个数], [比较方式])
+简单的可以
+Split([字符串], [拆分根据的字符])
+切片切片会返回字符串特点位置的值。
+Mid([字符串], [起始索引], [结束索引])
+&#39; 单个字符的切片
+Mid([字符串], [位置])
+替换字符Replace([字符串], [旧字符], [新字符])
+大小写转换Ucase([字符串]) &#39;转换成大写
+Lcase([字符串]) &#</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>&nbsp;
+          
+            <a href="/categories/VBA">VBA</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a href="/2020/03/08/VBda/">
         <p class="h4 index-header">VB数据进阶与运算符</p>
       </a>
@@ -941,70 +1034,6 @@ if not datetime.datetime(init_year, init_mouth, init_day).strftime(&quot;%w&quot
 计算当前周数计算当前日期于初始化时间直接差了多少天，然后除以7取余。结果从一开始，在weeks上面加个1.
 # 初始化的时间
 init_date = datetime.datetime(init_year, i</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-20&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>&nbsp;
-          
-            <a href="/categories/python">python</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8">课程表</a>&nbsp;
-          
-            <a href="/tags/tkinter">tkinter</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/02/20/do-a-classbook-1/">
-        <p class="h4 index-header">来做个课程表吧（一）</p>
-      </a>
-
-      <a href="/2020/02/20/do-a-classbook-1/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">手机端的课程表种类繁多，但电脑端的课程表种类却很少，也不支持自动导课。既然这样就让我们来造轮子吧。
-[toc]
-获取课程表首先我们先去获取课程表。登录教务，点击 学生课表查询，进入课表界面，按F12，导航到 Network，按下 ctrl+ r刷新界面，界面更新后，下面出现了几个文件，让我们一个个查看。
-
-
-接下来点击 Preview，当我们找到第三个的时候我们可以发现里面包含了课程名、时间等，正好是我们需要的内容。
-
-
-接下来我们用右键选择 Copy response，然后这个JSON就保存到我们的粘贴板上了。
-
-
-制作课程表读取JSON数据接下来我们使用python来制作课程表
-首先导入json包，然后导入刚才粘贴的数据，然后把它打印出来
-# -*- coding:GBK -*-         # 文件编码
-import json
-
-class_js = &#39;&#39;&#39;[复制刚才的粘贴内容在这里]&#39;&#39;&#39;
-js = json.loads(class_js)  # 转化为json
-print(js)
-输出结果是这样的：
-
-结果是我们要的数据
-获</div>
         </div>
       </a>
 
