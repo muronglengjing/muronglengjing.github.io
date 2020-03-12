@@ -144,6 +144,90 @@
     
     
     <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/03/12/do-a-classbook-4/">
+        <p class="h4 index-header">来做个课程表吧（四）</p>
+      </a>
+
+      <a href="/2020/03/12/do-a-classbook-4/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+
+[toc]
+抽象首先，我们需要明确自己的设计需求。
+课程表应该能读取课程，显示课程，管理课程。
+显示效果首先，我们显示的应该是本周的课程，课程信息应该包括 课程名、节、地点、时间等必要信息，不同课程最好有不同颜色区分，同种课程的颜色最好相同。如下：
+
+
+
+
+星期一
+星期二
+……
+
+
+
+第一节
+课程一
+课程二
+……
+
+
+第二节
+课程三
+课程四
+……
+
+
+……
+……
+……
+……
+
+
+另外，我们有时候需要查看上下周的课程，所以应该有一个切换周次的按钮。
+管理课程我们需要根据当前是第几周来显示课程，所以需要保存第一周的时间；同时，也要显示当前是第几周的课程数据，所以需要保存每一节课的时间。
+我们需要添加课程、删除课程，必要时能够修改课程。
+另外，有时不想手动输入课程数据，我们应该能够直接从教务系统导入课程，需要一系列的键值对。
+因此，我们的需要一个启动文件data.json：
+{&quot;start&quot;: [2020, 2, 20],
+  &quot;local&quot;: [&quot;kbList&quot;], 
+  &quot;book&quot;: {
+    &qu</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>&nbsp;
+          
+            <a href="/categories/python">python</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/tkinter">tkinter</a>&nbsp;
+          
+            <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8">课程表</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a href="/2020/03/08/VBString/">
         <p class="h4 index-header">VB字符串处理</p>
       </a>
@@ -977,65 +1061,9 @@ height
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8">课程表</a>&nbsp;
-          
             <a href="/tags/tkinter">tkinter</a>&nbsp;
           
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2020/02/20/do-a-classbook-2/">
-        <p class="h4 index-header">来做个课程表吧（二）</p>
-      </a>
-
-      <a href="/2020/02/20/do-a-classbook-2/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">[toc]
-我们想要根据当前第几周显示课程表。
-确认当前时间初始化时间首先我们要确认一个学期的开始。我们设置一个日期。如果这个日期是星期天那么他就是一个学期的开始，如果不是，那么就变更这一天到最近的周日。
-import datetime
-
-# 确认开始的日期 年/月/日
-init_year = 2020
-init_mouth = 2
-init_day = 20
-# 如果开始的一天不是周日，则将开始的日期变为周日
-if not datetime.datetime(init_year, init_mouth, init_day).strftime(&quot;%w&quot;) == 0:
-    init_day -= eval(datetime.datetime(init_year, init_mouth, init_day).strftime(&quot;%w&quot;))
-计算当前周数计算当前日期于初始化时间直接差了多少天，然后除以7取余。结果从一开始，在weeks上面加个1.
-# 初始化的时间
-init_date = datetime.datetime(init_year, i</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-20&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>&nbsp;
-          
-            <a href="/categories/python">python</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
             <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8">课程表</a>&nbsp;
-          
-            <a href="/tags/tkinter">tkinter</a>&nbsp;
           
         
       </div>
