@@ -1,16 +1,5 @@
-https://muronglengjing.gitee.io/2020/03/12/do-a-classbook-4/
+https://muronglengjing.gitee.io/2020/03/12/do-a-class-4/
 https://muronglengjing.gitee.io/2020/03/08/VBString/
 https://muronglengjing.gitee.io/2020/03/08/VBdata/
 https://muronglengjing.gitee.io/2020/03/06/vb%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/
 https://muronglengjing.gitee.io/2020/03/05/VB/
-https://muronglengjing.gitee.io/2020/02/28/coriolis-force/
-https://muronglengjing.gitee.io/2020/02/25/%E7%B1%BB%E3%80%81%E5%AF%B9%E8%B1%A1%E2%80%A6%E2%80%A6%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/
-https://muronglengjing.gitee.io/2020/02/25/%E5%8F%AA%E7%94%A811%E8%A1%8C%E4%BB%A3%E7%A0%81%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%94%BB%E5%9B%BE%E5%83%8F/
-https://muronglengjing.gitee.io/2020/02/21/tkinter-quick/
-https://muronglengjing.gitee.io/2020/02/21/do-a-classbook-3/
-https://muronglengjing.gitee.io/2020/02/20/do-a-classbook-2/
-https://muronglengjing.gitee.io/2020/02/20/do-a-classbook-1/
-https://muronglengjing.gitee.io/2020/02/19/%E4%BB%8EOpenCv%E5%88%B0%E7%85%A7%E7%89%87%E8%B0%83%E8%89%B2/
-https://muronglengjing.gitee.io/2020/02/17/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%90%88%E9%9B%86/
-https://muronglengjing.gitee.io/2020/02/17/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%90%A7/
-https://muronglengjing.gitee.io/2020/02/16/%E9%BB%84%E6%B2%99%E4%B9%8B%E4%B8%8A%EF%BC%8C%E6%98%AF%E4%BD%A0%E7%9A%84%E6%95%85%E4%B9%A1%E5%90%97/
