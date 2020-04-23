@@ -144,6 +144,64 @@
     
     
     <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/02/21/do-a-class-3/">
+        <p class="h4 index-header">用python做个课程表吧（三）</p>
+      </a>
+
+      <a href="/2020/02/21/do-a-class-3/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">实际上两个版本的界面还是不能让人满意，接下来我们来用pygame来为课程表优化界面吧。
+[toc]
+保存课程表数据我们把数据保存在外部文件上，方便多次修改于调用。
+用data.json来保存开始的时间，和数据中保存数据中保存名字、周等的键名。
+{
+  &quot;start&quot;: [2020, 2, 20],
+  &quot;book&quot;: {
+    &quot;name&quot;:&quot;kcmc&quot;,
+    &quot;teacher&quot;:&quot;xm&quot;,
+    &quot;week&quot;: &quot;zcd&quot;,
+    &quot;part&quot;: &quot;jcor&quot;,
+    &quot;weekday&quot;: &quot;xqjmc&quot;,
+    &quot;address&quot;: &quot;cdmc&quot;}
+}
+用class.json保存课程数据，这样在不同的更新课表后不用修改代码直接修改课程文件即可。
+然后打开这两个文件，并转化为json。
+# 用外</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B">编程</a>&nbsp;
+          
+            <a href="/categories/python">python</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/tkinter">tkinter</a>&nbsp;
+          
+            <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8">课程表</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
       <a href="/2020/02/20/do-a-class-2/">
         <p class="h4 index-header">用python做个课程表吧（二）</p>
       </a>
