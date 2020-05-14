@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>简Note-Markdown笔记本</title>
+    <link href="/2020/05/14/RNote-Markdown/"/>
+    <url>/2020/05/14/RNote-Markdown/</url>
+    
+    <content type="html"><![CDATA[<h1 id="简Note-Markdown笔记本"><a href="#简Note-Markdown笔记本" class="headerlink" title="简Note-Markdown笔记本"></a>简Note-Markdown笔记本</h1><p> 一个简单的Markdown文档管理工具。本身功能不多，以解决文件夹管理Markdown文件为目的，本身已经足够使用。</p><p><img src="https://i.loli.net/2020/05/14/26oTOFuhD8mjaH4.png" srcset="/img/loading.gif" alt=""></p><p>下载链接：<u><a href="https://ww.lanzous.com/icmhvkh" target="_blank" rel="noopener">https://ww.lanzous.com/icmhvkh</a></u></p><p>版本日志：</p><h4 id="V1-0"><a href="#V1-0" class="headerlink" title="V1.0"></a>V1.0</h4><p>新界面，增加了文件管理功能。</p><p>运行快速创建笔记本、分区与页</p><p>能够使用默认方式打开浏览文件</p><p>这次开发花了很多时间</p><p>也占用了一些上课的时间</p><p>以后会在功能上完善它</p><p>不会再用上课时间开发了</p><p>2020-5-14</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+      <category>python</category>
+      
+      <category>qt5</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+      <tag>markdown</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>加密通讯</title>
     <link href="/2020/04/23/secert-message/"/>
     <url>/2020/04/23/secert-message/</url>
