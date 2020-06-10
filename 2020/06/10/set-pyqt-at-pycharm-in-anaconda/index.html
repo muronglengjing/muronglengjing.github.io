@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="RQY">
   <meta name="keywords" content="">
-  <title>分类 - python ~ 灯</title>
+  <title>Pycharm在Anaconda环境下设置PyQt ~ 灯</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -106,8 +106,8 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/categories.jpg')no-repeat center center;
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/miku.jpg')no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -116,6 +116,41 @@
               
             </span>
 
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期三, 六月 10日 2020, 6:52 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    147 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -127,90 +162,120 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-<!--  <p class="h4">共计 10 篇文章</p>-->
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/06/10/set-pyqt-at-pycharm-in-anaconda/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Pycharm在Anaconda环境下设置PyQt</span>
-      <span style="float: right;">06-10</span>
-    </a>
-  
-    
-    <a href="/2020/05/15/RNote-Markdown2/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">简Note-Markdown笔记本	V1.1</span>
-      <span style="float: right;">05-15</span>
-    </a>
-  
-    
-    <a href="/2020/05/14/RNote-Markdown/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">简Note-Markdown笔记本</span>
-      <span style="float: right;">05-14</span>
-    </a>
-  
-    
-    <a href="/2020/04/23/secert-message/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">加密通讯</span>
-      <span style="float: right;">04-23</span>
-    </a>
-  
-    
-    <a href="/2020/03/12/do-a-class-4/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">用python做个课程表吧（四）</span>
-      <span style="float: right;">03-12</span>
-    </a>
-  
-    
-    <a href="/2020/02/25/%E5%8F%AA%E7%94%A811%E8%A1%8C%E4%BB%A3%E7%A0%81%EF%BC%8C%E8%BD%BB%E6%9D%BE%E7%94%BB%E5%9B%BE%E5%83%8F/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">只用11行代码，轻松画图像</span>
-      <span style="float: right;">02-25</span>
-    </a>
-  
-    
-    <a href="/2020/02/21/tkinter-quick/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">tkinter快速入门</span>
-      <span style="float: right;">02-21</span>
-    </a>
-  
-    
-    <a href="/2020/02/21/do-a-class-3/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">用python做个课程表吧（三）</span>
-      <span style="float: right;">02-21</span>
-    </a>
-  
-    
-    <a href="/2020/02/20/do-a-class-2/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">用python做个课程表吧（二）</span>
-      <span style="float: right;">02-20</span>
-    </a>
-  
-    
-    <a href="/2020/02/20/do-a-class-1/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">用python做个课程表吧（一）</span>
-      <span style="float: right;">02-20</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <p>打开<code>Pycharm</code>，点击<code>文件（File）</code>-<code>设置（Setting）</code>-<code>工具（Tools）</code></p>
+<h1 id="QtDesigner"><a href="#QtDesigner" class="headerlink" title="QtDesigner"></a>QtDesigner</h1><p>点击<code>加号（add）</code></p>
+<p>第一个参数程序填入Qt自带的designer程序的地址</p>
+<p>第二个参数不填</p>
+<p>第三个参数填项目文件目录，如下图所示：</p>
+<pre><code>D:\Qt\5.14.0\msvc2017_64\bin\designer.exe
 
+$ProjectFileDir$</code></pre><p><img src="https://i.loli.net/2020/06/10/e9QyPompxdSAuKa.png" srcset="/img/loading.gif" alt="image-20200610184328727"></p>
+<p>点击<code>确认（Ok）</code></p>
+<h1 id="PyUic"><a href="#PyUic" class="headerlink" title="PyUic"></a>PyUic</h1><p>点击<code>加号（add）</code></p>
+<p>第一个填入Anaconda目录下的Python程序</p>
+<p>第二个填入下面的参数</p>
+<p>第三个填文件目录</p>
+<p>如下图所示</p>
+<pre><code>D:\Anaconda\python.exe
+-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py
+$FileDir$</code></pre><p><img src="https://i.loli.net/2020/06/10/WJ9xDti6fYF3KCr.png" srcset="/img/loading.gif" alt="image-20200610184350806"></p>
+<p>点击<code>确认（OK）</code></p>
+<p>点击<code>应用（Apply）</code>即可配置成功。</p>
 
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E7%BC%96%E7%A8%8B">编程</a>
+                  &nbsp;
+                
+                  <a class="hover-with-bg" href="/categories/python">python</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/PyQt">PyQt</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://baike.baidu.com/item/CC-BY-SA-3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC/1611144?fr=aladdin" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "bXTvJ0aEiQrw2W0m4q7oJnMw-gzGzoHsz",
+        app_key: "6G7bsJnYnzpvXic24IWjPNFA",
+        placeholder: "来聊天吧",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -289,6 +354,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smoothscroll/SmoothScroll.min.js" ></script>
@@ -353,7 +423,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类 - python&nbsp;",
+        "Pycharm在Anaconda环境下设置PyQt&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

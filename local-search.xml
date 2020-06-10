@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Pycharm在Anaconda环境下设置PyQt</title>
+    <link href="/2020/06/10/set-pyqt-at-pycharm-in-anaconda/"/>
+    <url>/2020/06/10/set-pyqt-at-pycharm-in-anaconda/</url>
+    
+    <content type="html"><![CDATA[<p>打开<code>Pycharm</code>，点击<code>文件（File）</code>-<code>设置（Setting）</code>-<code>工具（Tools）</code></p><h1 id="QtDesigner"><a href="#QtDesigner" class="headerlink" title="QtDesigner"></a>QtDesigner</h1><p>点击<code>加号（add）</code></p><p>第一个参数程序填入Qt自带的designer程序的地址</p><p>第二个参数不填</p><p>第三个参数填项目文件目录，如下图所示：</p><pre><code>D:\Qt\5.14.0\msvc2017_64\bin\designer.exe$ProjectFileDir$</code></pre><p><img src="https://i.loli.net/2020/06/10/e9QyPompxdSAuKa.png" srcset="/img/loading.gif" alt="image-20200610184328727"></p><p>点击<code>确认（Ok）</code></p><h1 id="PyUic"><a href="#PyUic" class="headerlink" title="PyUic"></a>PyUic</h1><p>点击<code>加号（add）</code></p><p>第一个填入Anaconda目录下的Python程序</p><p>第二个填入下面的参数</p><p>第三个填文件目录</p><p>如下图所示</p><pre><code>D:\Anaconda\python.exe-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py$FileDir$</code></pre><p><img src="https://i.loli.net/2020/06/10/WJ9xDti6fYF3KCr.png" srcset="/img/loading.gif" alt="image-20200610184350806"></p><p>点击<code>确认（OK）</code></p><p>点击<code>应用（Apply）</code>即可配置成功。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+      <category>python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>PyQt</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>简Note-Markdown笔记本	V1.1</title>
     <link href="/2020/05/15/RNote-Markdown2/"/>
     <url>/2020/05/15/RNote-Markdown2/</url>
