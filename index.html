@@ -196,7 +196,55 @@
         
         <div class="index-excerpt" >
           <div class="index-text mb-1">
-</div>
+运算符重载重载规则原有的语义不变
+不改变运算符的优先级
+不改变运算符的结合性
+不改变运算符需要的操作数
+
+运算符函数
+类型 类名::operator op(参数表){//相对于该类的操作}
+
+默认重载版本
+=
+
+对象数据成员的复制
+
+
+&amp;
+
+返回对象的地址
+
+
+
+用成员/友元函数重载运算符区别
+有this指针
+无this指针
+无法重载= () [] -&gt;
+
+一元运算符
+Object.operator op()
+operator op(Object)
+
+二元运算符
+ObjectL.operator op(ObjectR)
+operator op(ObjectL,ObjectR)
+
+典型的重载重载++、–（参数int是一个伪参数，用于前置后置的区别。函数体内不应该使用伪参数，不然会引起调用的二义性）
+
+前置
+
+A &amp;A::operator++()
+friend A &amp; operator++(A &amp;)
+
+
+后置
+
+A &amp;A::operator++(int)
+friend A &amp; operator++(A &amp;, int)
+
+
+
+重</div>
         </div>
       </a>
 
